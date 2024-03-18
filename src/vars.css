@@ -1,0 +1,23 @@
+:root {
+    --main-font-color: #000;
+    --main-bg-color: #fff;
+    --accent-color: #646cff;
+    --accent-v1-color: #535bf2;
+    --danger-color: #db3a34;
+    --warning-color: #ed9b40;
+    --success-color: #3bceac;
+
+    --border-radius: 8px;
+    --input-border-radius: 10px;
+    --pad: 1rem;
+    --font-size: 16px;
+    --small-font-size: 12px;
+    --medium-font-size: 18px;
+
+    --borders: 1px var(--main-font-color) solid;
+
+    line-height: 1.5;
+
+    color: var(--main-font-color);
+    background-color: var(--main-bg-color);
+}
