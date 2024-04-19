@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FILES } from './const.mjs';
 
+// TODO: Improve Error Messaging, maybe pass errorcode/message
 export function help({ error = false } = {}) {
     if (error) {
         console.log("not a valid command");
