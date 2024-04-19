@@ -1,5 +1,6 @@
 {
   "name": "tinchi",
+  "type": "module",
   "version": "0.0.1",
   "description": "a small css util library",
   "keywords": [
@@ -9,8 +10,12 @@
   ],
   "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
   "license": "MIT",
+  "main": "./index.js",
+  "bin": {
+    "tinchi": "./index.js"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vikkio88/ntrallazzu.git"
+    "url": "https://github.com/vikkio88/tinchi.git"
   }
 }

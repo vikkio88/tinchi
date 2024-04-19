@@ -58,6 +58,10 @@ Utils
     margin: 0 auto;
 }
 
+.mg_5 {
+    margin: .5rem;
+}
+
 .mg {
     margin: 1rem;
 }
@@ -136,6 +140,14 @@ Utils
     justify-content: center;
 }
 
+.fic {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
 .g_5 {
     gap: .5rem;
 }
@@ -146,6 +158,97 @@ Utils
 
 .g2 {
     gap: 2rem;
+}
+
+.oa {
+    overflow: auto;
+}
+
+/* Font Styles */
+.tt-cpz {
+    text-transform: capitalize;
+}
+
+/*  Colours */
+.success {
+    color: var(--success-color);
+}
+
+.danger {
+    color: var(--danger-color);
+}
+
+/** Buttons */
+button {
+    border: var(--borders);
+    border-radius: var(--border-radius);
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--main-font-color);
+    font-family: inherit;
+    background-color: var(--accent-v1-color);
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+}
+
+button:focus,
+button:focus-visible {
+    outline: var(--border-radius) auto -webkit-focus-ring-color;
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+button.success {
+    background-color: var(--success-v1-color);
+    color: var(--main-font-color);
+}
+
+button.success:hover {
+    background-color: var(--success-color);
+}
+
+button.danger {
+    background-color: var(--danger-color);
+    color: var(--main-font-color);
+}
+
+button.danger:hover {
+    background-color: var(--danger-v1-color);
+}
+
+button.warning {
+    background-color: var(--warning-color);
+    color: var(--main-font-color);
+}
+
+button.warning:hover {
+    background-color: var(--warning-v1-color);
+}
+
+button.big {
+    padding: 2rem 3rem;
+    font-size: 1.5rem;
+}
+button.small {
+    padding: 0.3rem 1rem;
+    font-size: .8rem;
+}
+
+/* Inputs */
+input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+input[type="radio"] {
+    transform: scale(1.5);
 }
 
 /*
