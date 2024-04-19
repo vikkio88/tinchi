@@ -5,14 +5,23 @@ from sicilian: _Tìnci_ (ph: tin-chee) = To Paint.
 A small set of css utils classes to quickly startup your css project without having to copy paste snippets all over the place.
 ## How to use it
 ```
-npm i tinchi
+npm i -g tinchi
 ```
-Either use it in js, or move it to the assets folder.
+
+or/then
+
+```
+npx tinchi [options] folder
+
+```
+
+This will generate the `tinchi` css file(s) to the specified folder.
+
+Then just need to use that folder/filename on your html like so:
 
 ```html
-<link rel="stylesheet" href="node_modules/tinchi/dist/tinchi_vars.css" />
-<link rel="stylesheet" href="node_modules/tinchi/dist/tinchi.css" />
-
+<link rel="stylesheet" href="folder/vars.css" />
+<link rel="stylesheet" href="folder/index.css" />
 ```
 ## Docs
 ### Defaults
@@ -20,14 +29,16 @@ Either use it in js, or move it to the assets folder.
 The defaults settings are in a `vars.css` file you can replace/override specifying a custom one afterward:
 
 ```html
-<link rel="stylesheet" href="../src/vars.css" />
+<link rel="stylesheet" href="folder/vars.css" />
 <link rel="stylesheet" href="./custom.css" />
-<link rel="stylesheet" href="../src/index.css" />
+<link rel="stylesheet" href="folder/index.css" />
 ```
 ### Behaviours
 `h_inv` - invert colours on hover
 
 `c-ptr` - cursor pointer on hover
+
+`oa` - `overflow:auto`
 
 ### Box Model utils
 `brd` - borders with default val and default radius (coming from vars)
@@ -37,6 +48,8 @@ The defaults settings are in a `vars.css` file you can replace/override specifyi
 `pd2` - padding 2rem
 
 `m0a` - margins 0 auto
+
+`mg_5` - margin 0.5rem
 
 `mg` - margin 1rem
 
@@ -60,6 +73,8 @@ The defaults settings are in a `vars.css` file you can replace/override specifyi
 
 `fi` - flex items list, a set of items in a list that wrap and scale to size
 
+`fic` - same as `fi` only on a column.
+
 #### columns
 `flex-direction: column`
 
@@ -81,6 +96,30 @@ The defaults settings are in a `vars.css` file you can replace/override specifyi
 `rs` - center aligned and justified on flex start.
 
 `re` - center aligned and justified on flex end.
+
+### Buttons
+Buttons have `bg-color` of `--accent-v1-color`
+
+There are a few variants:
+
+`button.big` - a wide button
+
+`button.small` - a small button
+
+`button.success` - a button with `bg-colour` `--success-color`
+
+`button.warning` - a button with `bg-colour` `--warning-color`
+
+`button.danger` - - a button with `bg-colour` `--danger-color`
+
+
+
+### Font Styles/Effects
+`tt-cpz` - `text-transform: capitalize;`
+
+`success` - make the text colour `--success-color`
+
+`danger` - make the text colour `--danger-color`
 
 ### Debug
 

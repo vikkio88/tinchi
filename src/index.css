@@ -40,6 +40,11 @@ Utils
     cursor: pointer;
 }
 
+.oa {
+    overflow: auto;
+}
+
+
 /* Box Model */
 .brd {
     border: var(--borders);
@@ -160,10 +165,6 @@ Utils
     gap: 2rem;
 }
 
-.oa {
-    overflow: auto;
-}
-
 /* Font Styles */
 .tt-cpz {
     text-transform: capitalize;
@@ -237,6 +238,7 @@ button.big {
     padding: 2rem 3rem;
     font-size: 1.5rem;
 }
+
 button.small {
     padding: 0.3rem 1rem;
     font-size: .8rem;
