@@ -11,8 +11,12 @@ npm i -g tinchi
 or/then
 
 ```
-npx tinchi [options] folder
+npx tinchi [options] dump folder
+```
 
+More info with
+```
+npx tinchi help
 ```
 
 This will generate the `tinchi` css file(s) to the specified folder.

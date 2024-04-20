@@ -3,16 +3,28 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FILES } from './const.mjs';
 
-// TODO: Improve Error Messaging, maybe pass errorcode/message
-export function help({ error = false } = {}) {
+export function help({ error = false, message = null } = {}) {
     if (error) {
-        console.log("not a valid command");
+        console.log(`error: ${message || "not a valid command"}`);
     }
 
-    console.log("tinchi [options] output/path");
+    console.log("usage:\n\ttinchi [options] [method] [vars]");
+    console.log("methods:");
+    console.log("\t init - thinchi init");
+    console.log("\t\t will init the .tinchirc file");
+    console.log("\t dump - thinchi [m] dump path/of/file");
+    console.log("\t\t will dump tinchi css in path/of/file specified.");
+    console.log("\t\t m - merge: will merge in a single file");
+
+
 };
 
-export function exec(folder, args) {
+function dump([folder, ..._], args) {
+    if (!Boolean(folder)) {
+        console.log("tinchi dump [path/to/folder]");
+        console.log("\t folder param is necessary");
+        process.exit(1);
+    }
     const results = [];
     const currentFilePath = path.dirname(fileURLToPath(import.meta.url));
     if (!fs.existsSync(folder)) {
@@ -32,5 +44,11 @@ export function exec(folder, args) {
         }
     });
 
-    return new Set(results);
+    const files = [... new Set(results)];
+    console.log(`done!\n\nfiles generated:\n${files.join("\n")}`);
 }
+
+export const METHODS = {
+    dump: dump,
+    help: help
+};
