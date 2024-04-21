@@ -11,7 +11,12 @@ npm i -g tinchi
 or/then
 
 ```
-npx tinchi [options] dump folder
+npx tinchi [options] generate [folder/file]
+```
+
+or if you have initialised a '.tinchirc' file via `tinchi init`
+```
+tinchi generate
 ```
 
 More info with

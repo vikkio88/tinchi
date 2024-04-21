@@ -20,6 +20,9 @@ export function help({ error = false, message = null } = {}) {
     console.log("\t\t generator will use colours definition from `.tinchirc` file otherwise defaults).");
     console.log("\t\t m - merge: will merge in a single file (not need if you specified the filename param).");
     console.log();
+    console.log("link to docs: https://github.com/vikkio88/tinchi?tab=readme-ov-file#docs");
+    console.log();
+
 
 
 };
