@@ -43,7 +43,7 @@ function generate([folderFromCli, filenameFromCli, ..._], args) {
     const mergeOutput = path.join(folder, filename || 'style.css');
     if (shouldMerge && fs.existsSync(mergeOutput)) {
         // cleanup if merging
-        fs.unlink(mergeOutput);
+        fs.unlinkSync(mergeOutput);
     }
 
     for (const f of FILES) {
