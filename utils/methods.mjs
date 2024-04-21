@@ -41,6 +41,11 @@ function generate([folderFromCli, filenameFromCli, ..._], args) {
     }
 
     const mergeOutput = path.join(folder, filename || 'style.css');
+    if (shouldMerge && fs.existsSync(mergeOutput)) {
+        // cleanup if merging
+        fs.unlink(mergeOutput);
+    }
+
     for (const f of FILES) {
         const isTemplated = Boolean(TEMPLATED_FILES[f]);
         const srcFile = isTemplated ? TEMPLATED_FILES[f] : f;
