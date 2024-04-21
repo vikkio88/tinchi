@@ -33,7 +33,12 @@ function loadConfig() {
         return { output: null, vars: null };
     }
 
-    return JSON.parse(fs.readFileSync(TINCHI_RC).toString());
+    try {
+        JSON.parse(fs.readFileSync(TINCHI_RC).toString());
+    } catch {
+        console.log('\n\tError: Invalid .tinchirc file.\n\n');
+        return { output: null, vars: null };
+    }
 }
 
 

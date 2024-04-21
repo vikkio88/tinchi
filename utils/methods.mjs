@@ -29,7 +29,7 @@ function generate([folderFromCli, filenameFromCli, ..._], args) {
 
     if (!Boolean(folder)) {
         console.log("tinchi generate [path/to/folder]");
-        console.log("\t folder param is necessary, either specify it or init a new config with 'tinchi init");
+        console.log("\t folder param is necessary, either specify it or init a new config with 'tinchi init'");
         process.exit(1);
     }
     const results = [];
