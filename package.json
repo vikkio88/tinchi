@@ -9,7 +9,8 @@
     "utils"
   ],
   "scripts": {
-    "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets"
+    "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets",
+    "test:gen:example-merge": "rm -rf test/example/assets && node index.js generate test/example/assets testing.css"
   },
   "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
   "license": "MIT",

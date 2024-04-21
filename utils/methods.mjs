@@ -38,37 +38,24 @@ function generate([folder, filename, ..._], args) {
     if (!fs.existsSync(folder)) {
         fs.mkdirSync(folder);
     }
+    const mergeOutput = path.join(folder, filename || 'style.css');
 
     for (const f of FILES) {
-        if (!Boolean(TEMPLATED_FILES[f])) {
-            const filePath = path.join(currentFilePath, '..', 'src', f);
-            if (shouldMerge) {
-                const output = path.join(folder, filename || 'style.css');
-                fs.appendFileSync(output, fs.readFileSync(filePath));
-                results.push(output);
-                continue;
-            }
+        const isTemplated = Boolean(TEMPLATED_FILES[f]);
+        const srcFile = isTemplated ? TEMPLATED_FILES[f] : f;
+        const filePath = path.join(currentFilePath, '..', 'src', srcFile);
+        const output = shouldMerge ? mergeOutput : path.join(folder, f);
+        const content = isTemplated ? generateFromTemplate(filePath, DEFAULTS) : fs.readFileSync(filePath);
 
-            const output = path.join(folder, f);
-            fs.copyFileSync(filePath, output);
-            results.push(output);
-            continue;
-        }
-
-        const filePath = path.join(currentFilePath, '..', 'src', TEMPLATED_FILES[f]);
-        const content = generateFromTemplate(filePath, DEFAULTS);
         if (shouldMerge) {
-            const output = path.join(folder, filename || 'style.css');
             fs.appendFileSync(output, content);
-            results.push(output);
-            continue;
+        } else {
+            fs.writeFileSync(output, content);
         }
-        const output = path.join(folder, f);
-        fs.writeFileSync(output, content);
-        results.push(output);
-        continue;
 
+        results.push(output);
     }
+
 
     const files = [... new Set(results)];
     //TODO:  add something like <link rel="stylesheet" href="./assets/vars.css"> and remove public replace with /
