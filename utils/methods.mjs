@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DEFAULTS, FILES, TEMPLATED_FILES, TINCHI_RC } from './const.mjs';
-import { generateFromTemplate } from './helpers.mjs';
+import { DEFAULT_VARS, FILES, TEMPLATED_FILES, TINCHI_RC } from './const.mjs';
+import { generateFromTemplate, loadConfigOrOverride } from './helpers.mjs';
 
 export function help({ error = false, message = null } = {}) {
     if (error) {
@@ -22,15 +22,14 @@ export function help({ error = false, message = null } = {}) {
 
 };
 
-function generate([folder, filename, ..._], args) {
-    //TODO: Load info from .tinchirc
-
+function generate([folderFromCli, filenameFromCli, ..._], args) {
+    const { folder, filename, vars } = loadConfigOrOverride(folderFromCli, filenameFromCli);
     // TODO: parse folder to check whether there is file name
     const shouldMerge = args.merge || Boolean(filename);
 
     if (!Boolean(folder)) {
-        console.log("tinchi dump [path/to/folder]");
-        console.log("\t folder param is necessary");
+        console.log("tinchi generate [path/to/folder]");
+        console.log("\t folder param is necessary, either specify it or init a new config with 'tinchi init");
         process.exit(1);
     }
     const results = [];
@@ -38,22 +37,22 @@ function generate([folder, filename, ..._], args) {
     if (!fs.existsSync(folder)) {
         fs.mkdirSync(folder);
     }
-    const mergeOutput = path.join(folder, filename || 'style.css');
 
+    const mergeOutput = path.join(folder, filename || 'style.css');
     for (const f of FILES) {
         const isTemplated = Boolean(TEMPLATED_FILES[f]);
         const srcFile = isTemplated ? TEMPLATED_FILES[f] : f;
         const filePath = path.join(currentFilePath, '..', 'src', srcFile);
-        const output = shouldMerge ? mergeOutput : path.join(folder, f);
-        const content = isTemplated ? generateFromTemplate(filePath, DEFAULTS) : fs.readFileSync(filePath);
+        const outputPath = shouldMerge ? mergeOutput : path.join(folder, f);
+        const content = isTemplated ? generateFromTemplate(filePath, vars || DEFAULT_VARS) : fs.readFileSync(filePath);
 
         if (shouldMerge) {
-            fs.appendFileSync(output, content);
+            fs.appendFileSync(outputPath, content);
         } else {
-            fs.writeFileSync(output, content);
+            fs.writeFileSync(outputPath, content);
         }
 
-        results.push(output);
+        results.push(outputPath);
     }
 
 
@@ -68,7 +67,7 @@ function init() {
     fs.writeFileSync(
         `${TINCHI_RC}`,
         JSON.stringify(
-            { vars: DEFAULTS },
+            { output: "public/style.css", vars: DEFAULT_VARS },
             null,
             2
         ),

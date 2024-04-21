@@ -9,7 +9,7 @@ export const FILES = [
 
 export const TINCHI_RC = '.tinchirc';
 
-export const DEFAULTS = {
+export const DEFAULT_VARS = {
     DARK: '#000003',
     LIGHT: '#fbfcfe',
     ACCENT: '#646cff',
