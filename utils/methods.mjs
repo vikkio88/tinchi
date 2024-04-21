@@ -12,10 +12,12 @@ export function help({ error = false, message = null } = {}) {
     console.log("usage:\n\ttinchi [options] [method] [vars]");
     console.log("methods:");
     console.log("\n\t init      - thinchi init");
-    console.log("\t\t It will init the .tinchirc file, where you can specify configs.");
+    console.log("\t\t It will init the `.tinchirc` file, where you can specify configs.");
     console.log();
-    console.log("\n\t generate  - thinchi generate path/of/file filename");
-    console.log("\t\t It will generate tinchi css in path/of/file specified (It will use colours definition from .tinchirc otherwise defaults).");
+    console.log("\n\t generate  - thinchi generate [path/of/file] [filename]");
+    console.log("\t\t It will generate tinchi css in path/of/file specified.");
+    console.log("\t\t if no parameter specified it will use `.tinchirc` file 'output' parameter.");
+    console.log("\t\t generator will use colours definition from `.tinchirc` file otherwise defaults).");
     console.log("\t\t m - merge: will merge in a single file (not need if you specified the filename param).");
     console.log();
 
