@@ -1,31 +1,31 @@
 :root {
-    --main-font-color: #000003;
-    --main-bg-color: #fbfcfe;
+    --main-font-color: __DARK__;
+    --main-bg-color: __LIGHT__;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --main-font-color: #fbfcfe;
-        --main-bg-color: #000003;
+        --main-font-color: __LIGHT__;
+        --main-bg-color: __DARK__;
     }
 }
 
 @media (prefers-color-scheme: light) {
     :root {
-        --main-font-color: #000003;
-        --main-bg-color: #fbfcfe;
+        --main-font-color: __DARK__;
+        --main-bg-color: __LIGHT__;
     }
 }
 
 :root {
-    --accent-color: #646cff;
-    --accent-v1-color: #535bf2;
-    --danger-color: #db3a34;
-    --danger-v1-color: #9c2723;
-    --warning-color: #ed9b40;
-    --warning-v1-color: #bb7b32;
-    --success-color: #3bceac;
-    --success-v1-color: #2a977e;
+    --accent-color: __ACCENT__;
+    --accent-v1-color: __ACCENT_1__;
+    --danger-color: __DANGER__;
+    --danger-v1-color: __DANGER_1__;
+    --warning-color: __WARNING__;
+    --warning-v1-color: __WARNING_1__;
+    --success-color: __SUCCESS__;
+    --success-v1-color: __SUCCESS_1__;
 
     --border-radius: .6rem;
     --input-border-radius: 10px;

@@ -5,11 +5,7 @@ const options = {
     merge: {
         type: 'boolean',
         short: 'm',
-    },
-    name: {
-        type: 'string',
-        short: 'n',
-    },
+    }
 };
 
 export function getArgs(argv) {

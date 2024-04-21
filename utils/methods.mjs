@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { FILES } from './const.mjs';
+import { DEFAULTS, FILES, TEMPLATED_FILES, TINCHI_RC } from './const.mjs';
+import { generateFromTemplate } from './helpers.mjs';
 
 export function help({ error = false, message = null } = {}) {
     if (error) {
@@ -12,14 +13,19 @@ export function help({ error = false, message = null } = {}) {
     console.log("methods:");
     console.log("\t init - thinchi init");
     console.log("\t\t will init the .tinchirc file");
-    console.log("\t dump - thinchi [m] dump path/of/file");
+    console.log("\t generate - thinchi generate path/of/file filename");
     console.log("\t\t will dump tinchi css in path/of/file specified.");
-    console.log("\t\t m - merge: will merge in a single file");
+    console.log("\t\t m - merge: will merge in a single file (node need if you specified the filename).");
 
 
 };
 
-function dump([folder, ..._], args) {
+function generate([folder, filename, ..._], args) {
+    //TODO: Load info from .tinchirc
+
+    // TODO: parse folder to check whether there is file name
+    const shouldMerge = args.merge || Boolean(filename);
+
     if (!Boolean(folder)) {
         console.log("tinchi dump [path/to/folder]");
         console.log("\t folder param is necessary");
@@ -31,24 +37,58 @@ function dump([folder, ..._], args) {
         fs.mkdirSync(folder);
     }
 
-    FILES.forEach(f => {
-        const filePath = path.join(currentFilePath, '..', 'src', f);
-        if (args.merge) {
-            const output = path.join(folder, args.name || 'style.css');
-            fs.appendFileSync(output, fs.readFileSync(filePath));
-            results.push(output);
-        } else {
+    for (const f of FILES) {
+        if (!Boolean(TEMPLATED_FILES[f])) {
+            const filePath = path.join(currentFilePath, '..', 'src', f);
+            if (shouldMerge) {
+                const output = path.join(folder, filename || 'style.css');
+                fs.appendFileSync(output, fs.readFileSync(filePath));
+                results.push(output);
+                continue;
+            }
+
             const output = path.join(folder, f);
             fs.copyFileSync(filePath, output);
             results.push(output);
+            continue;
         }
-    });
+
+        const filePath = path.join(currentFilePath, '..', 'src', TEMPLATED_FILES[f]);
+        const content = generateFromTemplate(filePath, DEFAULTS);
+        if (shouldMerge) {
+            const output = path.join(folder, filename || 'style.css');
+            fs.appendFileSync(output, content);
+            results.push(output);
+            continue;
+        }
+        const output = path.join(folder, f);
+        fs.writeFileSync(output, content);
+        results.push(output);
+        continue;
+
+    }
 
     const files = [... new Set(results)];
+    //TODO:  add something like <link rel="stylesheet" href="./assets/vars.css"> and remove public replace with /
     console.log(`done!\n\nfiles generated:\n${files.join("\n")}`);
 }
 
+
+function init() {
+    //TODO: Check if tinchirc exists
+    fs.writeFileSync(
+        `${TINCHI_RC}`,
+        JSON.stringify(
+            { vars: DEFAULTS },
+            null,
+            2
+        ),
+    );
+    console.log(`\nwrote config file in ${TINCHI_RC}\n`);
+}
+
 export const METHODS = {
-    dump: dump,
-    help: help
+    generate,
+    init,
+    help
 };

@@ -8,6 +8,9 @@
     "flexbox",
     "utils"
   ],
+  "scripts": {
+    "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets"
+  },
   "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
   "license": "MIT",
   "main": "./index.js",
