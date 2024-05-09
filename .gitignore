@@ -1,3 +1,4 @@
 node_modules/
 
 .tinchirc
+src/doc.json
