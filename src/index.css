@@ -170,6 +170,10 @@ Utils
     text-transform: capitalize;
 }
 
+.ta-c {
+    text-align: center;
+}
+
 /*  Colours */
 .success {
     color: var(--success-color);
