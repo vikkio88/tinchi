@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { DEFAULT_VARS, FILES, TEMPLATED_FILES, TINCHI_RC } from './const.mjs';
-import { generateFromTemplate, loadConfigOrOverride } from './helpers.mjs';
+import { generateFromTemplate, getCurrentFilePath, getSrcFileFromUtils, loadConfigOrOverride, searchCss } from './helpers.mjs';
 
 export function help({ error = false, message = null } = {}) {
     if (error) {
@@ -38,7 +38,7 @@ function generate([folderFromCli, filenameFromCli, ..._], args) {
         process.exit(1);
     }
     const results = [];
-    const currentFilePath = path.dirname(fileURLToPath(import.meta.url));
+
     if (!fs.existsSync(folder)) {
         fs.mkdirSync(folder);
     }
@@ -48,6 +48,8 @@ function generate([folderFromCli, filenameFromCli, ..._], args) {
         // cleanup if merging
         fs.unlinkSync(mergeOutput);
     }
+
+    const currentFilePath = getCurrentFilePath();
 
     for (const f of FILES) {
         const isTemplated = Boolean(TEMPLATED_FILES[f]);
@@ -85,8 +87,37 @@ function init() {
     console.log(`\nwrote config file in ${TINCHI_RC}\n`);
 }
 
+function search([term, ..._]) {
+    if (!Boolean(term)) {
+        console.log(`\nError - You need to specify search term:\n\n\ttinchi search flexbox\n`);
+        process.exit(1);
+    }
+    const docFile = getSrcFileFromUtils('doc.json');
+    if (!fs.existsSync(docFile)) {
+        console.log(`\nError - There is no doc file.`);
+        process.exit(1);
+    }
+    const doc = JSON.parse(fs.readFileSync(docFile));
+
+    const results = searchCss(term, doc);
+    if (results.length < 1) {
+        console.log(`\nNo results for '${term}'`);
+        process.exit(0);
+    }
+
+    console.log(`Results for '${term}':\n`);
+    for (const res of results) {
+        console.log(`\t- ${res.element ? `element: ${res.element} | ` : ''} class: ${res.classname}\n`);
+        for (const rule of res.rules) {
+            console.log(`\t\t ${rule.property}  : ${rule.value}`);
+        }
+        console.log('');
+    }
+}
+
 export const METHODS = {
     generate,
     init,
+    search,
     help
 };
