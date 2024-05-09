@@ -123,6 +123,7 @@ export function searchCss(query, cssDoc) {
     const results = [];
 
     for (const block of cssDoc) {
+        block:
         for (const rule of block.rules) {
             let propertyMatch = false;
             let valueMatch = false;
@@ -138,6 +139,7 @@ export function searchCss(query, cssDoc) {
                 results.push({
                     ...block
                 });
+                break block;
             }
         }
     }

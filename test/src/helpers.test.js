@@ -92,7 +92,7 @@ test("Search Css with complex queries", () => {
         { ...styleDoc[1] },
         { ...styleDoc[2] },
     ]);
-    expect(searchCss('cursor,displ,point,fle', styleDoc)).toEqual([
+    expect(searchCss('cursor,displ,point,fle,center', styleDoc)).toEqual([
         { ...styleDoc[0] },
         { ...styleDoc[1] },
         { ...styleDoc[2] },
