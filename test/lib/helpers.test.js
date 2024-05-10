@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { parseQuery, searchCss } from "../../utils/helpers.mjs";
+import { parseQuery, searchCss } from "../../lib/helpers.mjs";
 
 const styleDoc = [
     {

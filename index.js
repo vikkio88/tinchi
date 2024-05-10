@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { getArgs } from './utils/getArgs.mjs';
-import { validate } from './utils/validate.mjs';
-import { METHODS } from './utils/methods.mjs';
+import { getArgs } from './lib/getArgs.mjs';
+import { validate } from './lib/validate.mjs';
+import { METHODS } from './lib/methods.mjs';
 
 const { args, positionals } = getArgs(process.argv);
 validate(args, positionals);
