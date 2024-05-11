@@ -2,6 +2,7 @@ import { test, expect } from "vitest";
 import { parseQuery, searchCss } from "../../lib/helpers.mjs";
 
 const styleDoc = [
+    // 0
     {
         element: null,
         classname: 'f',
@@ -9,6 +10,7 @@ const styleDoc = [
             { property: 'display', value: 'flex' }
         ]
     },
+    // 1
     {
         element: 'span',
         classname: 'fspan',
@@ -16,6 +18,7 @@ const styleDoc = [
             { property: 'display', value: 'flex' }
         ]
     },
+    // 2
     {
         "element": null,
         "classname": "c-ptr",
@@ -26,6 +29,7 @@ const styleDoc = [
             }
         ]
     },
+    // 3
     {
         "element": null,
         "classname": "oa",
@@ -36,6 +40,7 @@ const styleDoc = [
             }
         ]
     },
+    // 4
     {
         "element": null,
         "classname": "cc",
@@ -57,19 +62,20 @@ const styleDoc = [
 ];
 
 
-function qr(simple, properties = [], values = []) {
+function qr(simple, properties = [], values = [], looseMatch = true) {
     return {
         simple,
         properties,
         values,
+        looseMatch
     };
 }
 test("Parse Query for Css Search", () => {
-
     expect(parseQuery('')).toEqual(qr(''));
     expect(parseQuery('mario')).toEqual(qr('mario'));
     expect(parseQuery('p:a#v:b')).toEqual(qr('p:a#v:b', ['a'], ['b']));
     expect(parseQuery('a,b,c')).toEqual(qr('a,b,c', ['a', 'b', 'c'], ['a', 'b', 'c']));
+    expect(parseQuery('p:display#v:fle=')).toEqual(qr('p:display#v:fle', ['display'], ['fle'], false));
 });
 
 test("Search Css with simple query", () => {
@@ -97,5 +103,15 @@ test("Search Css with complex queries", () => {
         { ...styleDoc[1] },
         { ...styleDoc[2] },
         { ...styleDoc[4] }
+    ]);
+});
+
+test("Search Css with strict match complex queries", () => {
+    expect(searchCss('p:display#v:fle=', styleDoc)).toEqual([
+        { ...styleDoc[0] },
+        { ...styleDoc[1] },
+    ]);
+    expect(searchCss('p:flex-dir,just#v:col,cent=', styleDoc)).toEqual([
+        { ...styleDoc[4] },
     ]);
 });
