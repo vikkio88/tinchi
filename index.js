@@ -3,7 +3,7 @@ import { getArgs } from './lib/getArgs.mjs';
 import { validate } from './lib/validate.mjs';
 import { METHODS } from './lib/methods.mjs';
 
-const { args, positionals } = getArgs(process.argv);
+const { args, positionals } = getArgs(process.argv.slice(2));
 validate(args, positionals);
 
 const [methodName, ...otherPositionals] = positionals;
