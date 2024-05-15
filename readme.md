@@ -50,6 +50,10 @@ search - tinchi search flex,column
   
   You can specify just properties and values like this "tinchi search p:overflow#v:auto".
   This will print all the classes that apply an overflow auto.
+
+  you can also specify classnames like "tinchi serach c:small,big"
+  This will print all the classes that are names like small or big.
+        
 ```
 ## Docs
 ### Defaults
