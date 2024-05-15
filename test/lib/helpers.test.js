@@ -1,81 +1,16 @@
-import { test, expect } from "vitest";
+import { test, expect, describe } from "vitest";
 import { parseQuery, searchCss } from "../../lib/helpers.mjs";
+import { qr, styleDoc } from "./styleMock.mjs";
 
-const styleDoc = [
-    // 0
-    {
-        element: null,
-        classname: 'f',
-        rules: [
-            { property: 'display', value: 'flex' }
-        ]
-    },
-    // 1
-    {
-        element: 'span',
-        classname: 'fspan',
-        rules: [
-            { property: 'display', value: 'flex' }
-        ]
-    },
-    // 2
-    {
-        "element": null,
-        "classname": "c-ptr",
-        "rules": [
-            {
-                "property": "cursor",
-                "value": "pointer"
-            }
-        ]
-    },
-    // 3
-    {
-        "element": null,
-        "classname": "oa",
-        "rules": [
-            {
-                "property": "overflow",
-                "value": "auto"
-            }
-        ]
-    },
-    // 4
-    {
-        "element": null,
-        "classname": "cc",
-        "rules": [
-            {
-                "property": "flex-direction",
-                "value": "column"
-            },
-            {
-                "property": "justify-content",
-                "value": "center"
-            },
-            {
-                "property": "align-items",
-                "value": "center"
-            }
-        ]
-    },
-];
-
-
-function qr(simple, properties = [], values = [], looseMatch = true) {
-    return {
-        simple,
-        properties,
-        values,
-        looseMatch
-    };
-}
 test("Parse Query for Css Search", () => {
     expect(parseQuery('')).toEqual(qr(''));
     expect(parseQuery('mario')).toEqual(qr('mario'));
     expect(parseQuery('p:a#v:b')).toEqual(qr('p:a#v:b', ['a'], ['b']));
     expect(parseQuery('a,b,c')).toEqual(qr('a,b,c', ['a', 'b', 'c'], ['a', 'b', 'c']));
-    expect(parseQuery('p:display#v:fle=')).toEqual(qr('p:display#v:fle', ['display'], ['fle'], false));
+    expect(parseQuery('p:display#v:fle=')).toEqual(qr('p:display#v:fle', ['display'], ['fle'], [], false));
+
+    expect(parseQuery('c:small')).toEqual(qr('c:small', [], [], ['small']));
+    expect(parseQuery('c:small,maurizio')).toEqual(qr('c:small,maurizio', [], [], ['small', 'maurizio']));
 });
 
 test("Search Css with simple query", () => {
@@ -106,12 +41,21 @@ test("Search Css with complex queries", () => {
     ]);
 });
 
-test("Search Css with strict match complex queries", () => {
-    expect(searchCss('p:display#v:fle=', styleDoc)).toEqual([
-        { ...styleDoc[0] },
-        { ...styleDoc[1] },
-    ]);
-    expect(searchCss('p:flex-dir,just#v:col,cent=', styleDoc)).toEqual([
-        { ...styleDoc[4] },
-    ]);
+describe("Search Css with strict match complex queries", () => {
+    test('property and value with strict and loose', () => {
+        expect(searchCss('p:display#v:fle=', styleDoc)).toEqual([
+            { ...styleDoc[0] },
+            { ...styleDoc[1] },
+        ]);
+        expect(searchCss('p:flex-dir,just#v:col,cent=', styleDoc)).toEqual([
+            { ...styleDoc[4] },
+        ]);
+    });
+
+    test('classnames search', () => {
+        expect(searchCss('c:cc', styleDoc)).toEqual([
+            { ...styleDoc[4] },
+        ]);
+        expect(searchCss('c:banana', styleDoc)).toEqual([]);
+    });
 });
