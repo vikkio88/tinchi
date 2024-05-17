@@ -24,26 +24,8 @@ h3 {
 }
 
 main {
-    height: 100vh;
+    height: 90vh;
 }
-
-/*
-Utils
-*/
-/* Behaviours */
-.h_inv:hover {
-    color: var(--main-bg-color);
-    background-color: var(--main-font-color);
-}
-
-.c-ptr {
-    cursor: pointer;
-}
-
-.oa {
-    overflow: auto;
-}
-
 
 /* Box Model */
 .brd {
@@ -137,7 +119,7 @@ Utils
 }
 
 /* A set of items for lists that wrap */
-.fi {
+.fiwr {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -145,7 +127,7 @@ Utils
     justify-content: center;
 }
 
-.fic {
+.fiwc {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -211,6 +193,11 @@ button:disabled {
     cursor: not-allowed;
 }
 
+button.transparent {
+    background-color: var(--main-bg-color);
+    color: var(--main-font-color);
+}
+
 button.success {
     background-color: var(--success-v1-color);
     color: var(--main-font-color);
@@ -248,13 +235,86 @@ button.small {
     font-size: .8rem;
 }
 
+/* button non-button */
+button.n-btn {
+    all: unset;
+    cursor: pointer;
+}
+
 /* Inputs */
+input[type="text"] {
+    padding: 1rem 0.5rem;
+}
+
 input[type="checkbox"] {
     transform: scale(1.5);
 }
 
 input[type="radio"] {
     transform: scale(1.5);
+}
+
+/*
+Utils
+*/
+.oa {
+    overflow: auto;
+}
+
+/* Behaviours */
+.h_inv:hover {
+    color: var(--main-bg-color);
+    background-color: var(--main-font-color);
+}
+
+.c-ptr {
+    cursor: pointer;
+}
+
+/** Positioning **/
+/* Floating top-right */
+.pos-a {
+    position: absolute;
+}
+
+.pos-r {
+    position: relative;
+}
+
+.z-idx {
+    z-index: 1;
+}
+
+.pos-atr {
+    padding: var(--pad);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.pos-atl {
+    padding: var(--pad);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pos-abr {
+    padding: var(--pad);
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.pos-abl {
+    padding: var(--pad);
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 /*

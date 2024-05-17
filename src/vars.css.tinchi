@@ -20,12 +20,16 @@
 :root {
     --accent-color: __ACCENT__;
     --accent-v1-color: __ACCENT_1__;
+    --accent-faint-color: __ACCENT_FAINT__;
     --danger-color: __DANGER__;
     --danger-v1-color: __DANGER_1__;
+    --danger-faint-color: __DANGER_FAINT__;
     --warning-color: __WARNING__;
     --warning-v1-color: __WARNING_1__;
+    --warning-faint-color: __WARNING_FAINT__;
     --success-color: __SUCCESS__;
     --success-v1-color: __SUCCESS_1__;
+    --success-faint-color: __SUCCESS_FAINT__;
 
     --border-radius: .6rem;
     --input-border-radius: 10px;
@@ -35,7 +39,11 @@
     --medium-font-size: 18px;
 
     --borders: 2px var(--main-font-color) solid;
-    --thin-borders: 2px var(--main-font-color) solid;
+    --borders-dashed: 2px var(--main-font-color) dashed;
+    --borders-dashed-danger: 2px var(--danger-color) dashed;
+    --borders-dashed-warning: 2px var(--warning-color) dashed;
+    --borders-dashed-success: 2px var(--success-color) dashed;
+    --thin-borders: 1px var(--main-font-color) solid;
     --box-shadow: 0 .2rem 1rem var(--main-font-color);
 
     line-height: 1.5;
