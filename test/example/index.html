@@ -5,9 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Tinchi</title>
-    <link rel="stylesheet" href="./assets/vars.css">
-    <link rel="stylesheet" href="./assets/index.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
+
+<style>
+    .dash {
+        border: var(--borders-dashed-danger);
+        background-color: var(--danger-faint-color);
+        padding: var(--pad);
+    }
+</style>
 
 <body>
     <main class="f cs">
@@ -22,6 +29,15 @@
         </div>
         <div class="f1 f cc">
             <h1>Test</h1>
+        </div>
+        <div class="f f1 rs g">
+
+            <button class="big warning">Hello</button>
+
+            <div class="dash">
+                <button class="small success">Button</button>
+                <button class="transparent">Button</button>
+            </div>
         </div>
     </main>
 </body>
