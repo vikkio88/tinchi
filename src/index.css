@@ -198,6 +198,11 @@ button.transparent {
     color: var(--main-font-color);
 }
 
+button.transparent:hover {
+    background-color: var(--main-font-color);
+    color: var(--main-bg-color);
+}
+
 button.success {
     background-color: var(--success-v1-color);
     color: var(--main-font-color);
