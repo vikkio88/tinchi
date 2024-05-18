@@ -2,7 +2,7 @@
 /**
 Animations
 **/
-.a_pulse {
+.anim_pulse {
     animation: pulse 0.5s infinite;
 }
 
@@ -17,5 +17,19 @@ Animations
 
     100% {
         transform: scale(0.95);
+    }
+}
+
+.anim_spin {
+    animation: spin 0.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
