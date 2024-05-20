@@ -259,6 +259,10 @@ input[type="radio"] {
     transform: scale(1.5);
 }
 
+meter {
+    height: 2.5rem;
+}
+
 /*
 Utils
 */
