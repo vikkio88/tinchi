@@ -1,7 +1,7 @@
-
 /**
 Animations
 **/
+
 .anim_pulse {
     animation: pulse 0.5s infinite;
 }
