@@ -45,6 +45,10 @@ main {
     margin: 0 auto;
 }
 
+.mg0 {
+    margin: 0;
+}
+
 .mg_5 {
     margin: .5rem;
 }
@@ -156,14 +160,32 @@ main {
     text-align: center;
 }
 
+/* Typography */
+h1 {
+    font-size: 1.7rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
 /*  Colours */
 .success {
     color: var(--success-color);
 }
 
+.warning {
+    color: var(--warning-color);
+}
+
 .danger {
     color: var(--danger-color);
 }
+
+.faint {
+    color: var(--main-bg-faint-color);
+}
+
 
 /** Buttons */
 button {
@@ -332,5 +354,6 @@ Debug Utils
 .debug {
     border: var(--borders);
     border-color: blue;
+    padding: var(--pad);
     background-color: red;
 }
