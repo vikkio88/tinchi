@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "vite": "^5.2.11",
-    "vite-plugin-run": "^0.5.2",
+    "vite-plugin-watch-and-run": "^1.7.0",
     "vitest": "^1.6.0"
   }
 }

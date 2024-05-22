@@ -354,6 +354,5 @@ Debug Utils
 .debug {
     border: var(--borders);
     border-color: blue;
-    padding: var(--pad);
     background-color: red;
 }
