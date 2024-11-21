@@ -114,6 +114,10 @@ main {
     align-items: center;
 }
 
+.ic {
+    align-items: center;
+}
+
 .spa {
     justify-content: space-around;
 }
