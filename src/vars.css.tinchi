@@ -24,6 +24,10 @@
 }
 
 :root {
+    --primary-color: __PRIMARY__;
+    --primary-v1-color: __PRIMARY_1__;
+    --secondary-color: __SECONDARY__;
+    --secondary-v1-color: __SECONDARY_1__;
     --accent-color: __ACCENT__;
     --accent-v1-color: __ACCENT_1__;
     --accent-faint-color: __ACCENT_FAINT__;

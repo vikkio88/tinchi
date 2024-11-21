@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets",
-    "test:gen:example-merge": "rm -rf test/example/assets && node index.js generate test/example/assets testing.css",
+    "test:gen:example-merge": "rm -rf test/example/assets && node index.js generate test/example/assets style.css",
     "build": "node scripts/gendoc.js",
     "prepublishOnly": "npm run build",
     "test": "vitest",

@@ -174,6 +174,32 @@ h2 {
 }
 
 /*  Colours */
+.primary {
+    color: var(--primary-color);
+}
+.bg-primary {
+    background-color: var(--primary-color);
+}
+.primary_1 {
+    color: var(--primary-v1-color);
+}
+.bg-primary_1 {
+    background-color: var(--primary-v1-color);
+}
+
+.secondary {
+    color: var(--secondary-color);
+}
+.bg-secondary {
+    background-color: var(--secondary-color);
+}
+.secondary_1 {
+    color: var(--secondary-v1-color);
+}
+.bg-secondary_1 {
+    background-color: var(--secondary-v1-color);
+}
+
 .success {
     color: var(--success-color);
 }
@@ -350,6 +376,30 @@ Utils
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+/**
+Components
+**/
+[data-tooltip] {
+    position: relative;
+}
+  
+[data-tooltip]:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: max-content;
+    background-color: var(--main-bg-color);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+  
+[data-tooltip]:hover:after {
+    opacity: 1;
 }
 
 /*
