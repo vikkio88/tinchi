@@ -391,6 +391,7 @@ Components
     left: 50%;
     bottom: 100%;
     width: max-content;
+    color: var(--main-font-color);
     background-color: var(--main-bg-color);
     padding: 0.5rem;
     border-radius: var(--border-radius);
