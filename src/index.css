@@ -23,10 +23,6 @@ h3 {
     margin: 0;
 }
 
-main {
-    height: 90vh;
-}
-
 /* Box Model */
 .brd {
     border: var(--borders);
@@ -114,7 +110,7 @@ main {
     align-items: center;
 }
 
-.ic {
+.aic {
     align-items: center;
 }
 
@@ -388,7 +384,7 @@ Components
 [data-tooltip]:after {
     content: attr(data-tooltip);
     position: absolute;
-    left: 50%;
+    left: 33%;
     bottom: 100%;
     width: max-content;
     color: var(--main-font-color);
@@ -400,7 +396,7 @@ Components
 }
   
 [data-tooltip]:hover:after {
-    opacity: 1;
+    opacity: .8;
 }
 
 /*
