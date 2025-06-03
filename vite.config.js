@@ -11,7 +11,7 @@ export default defineConfig({
     plugins: [
         watchAndRun([{
             name: 'Generating test assets.',
-            run: 'npm run g',
+            run: 'npm run g && mv public/style.css test/example/assets/style.css',
             watch: path.resolve('src/**/*.(css|tinchi)'),
         },]),
     ],
