@@ -41,7 +41,59 @@
     --success-v1-color: __SUCCESS_1__;
     --success-faint-color: __SUCCESS_FAINT__;
 
-    --border-radius: .6rem;
+    --blue-color: __BLUE__;
+    --blue-1-color: __BLUE_1__;
+    --blue-2-color: __BLUE_2__;
+
+    --red-color: __RED__;
+    --red-1-color: __RED_1__;
+    --red-2-color: __RED_2__;
+
+    --green-color: __GREEN__;
+    --green-1-color: __GREEN_1__;
+    --green-2-color: __GREEN_2__;
+
+    --lime-color: __LIME__;
+    --lime-1-color: __LIME_1__;
+    --lime-2-color: __LIME_2__;
+
+    --light-green-color: __LIGHT_GREEN__;
+    --light-green-1-color: __LIGHT_GREEN_1__;
+    --light-green-2-color: __LIGHT_GREEN_2__;
+
+    --yellow-color: __YELLOW__;
+    --yellow-1-color: __YELLOW_1__;
+    --yellow-2-color: __YELLOW_2__;
+
+    --orange-color: __ORANGE__;
+    --orange-1-color: __ORANGE_1__;
+    --orange-2-color: __ORANGE_2__;
+
+    --teal-color: __TEAL__;
+    --teal-1-color: __TEAL_1__;
+    --teal-2-color: __TEAL_2__;
+
+    --amber-color: __AMBER__;
+    --amber-1-color: __AMBER_1__;
+    --amber-2-color: __AMBER_2__;
+
+    --brown-color: __BROWN__;
+    --brown-1-color: __BROWN_1__;
+    --brown-2-color: __BROWN_2__;
+
+    --gray-color: __GRAY__;
+    --gray-1-color: __GRAY_1__;
+    --gray-2-color: __GRAY_2__;
+
+    --black-color: __BLACK__;
+    --black-1-color: __BLACK_1__;
+    --black-2-color: __BLACK_2__;
+
+    --white-color: __WHITE__;
+    --white-1-color: __WHITE_1__;
+    --white-2-color: __WHITE_2__;
+
+    --border-radius: .5rem;
     --input-border-radius: 10px;
     --pad: 1rem;
     --font-size: 16px;

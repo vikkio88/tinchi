@@ -162,11 +162,15 @@ h3 {
 
 /* Typography */
 h1 {
-    font-size: 1.7rem;
+    font-size: 2.7rem;
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.7rem;
 }
 
 /*  Colours */
@@ -211,7 +215,6 @@ h2 {
 .faint {
     color: var(--main-bg-faint-color);
 }
-
 
 /** Buttons */
 button {
