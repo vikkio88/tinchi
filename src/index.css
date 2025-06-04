@@ -194,7 +194,7 @@ h3 {
   font-size: 1.7rem;
 }
 
-/*  Colours */
+/*  Section: Colours */
 .primary {
   color: var(--primary-color);
 }
@@ -403,9 +403,7 @@ Section: Utils
   left: 0;
 }
 
-/**
-Section: Custom Components
-**/
+/** Section: Custom Components **/
 /* tooltip: add data-tooltip="CONTENT" to show content on hover */
 [data-tooltip] {
   position: relative;
@@ -429,9 +427,8 @@ Section: Custom Components
   opacity: 0.8;
 }
 
-/*
-Section: Debug Utils
-*/
+/* Section: Debug Utils*/
+/* Debug colours an element blue and red to display its boundaries */
 .debug {
   border: var(--borders);
   border-color: blue;

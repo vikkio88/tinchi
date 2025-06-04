@@ -1,6 +1,4 @@
-/**
-Section: Animations
-**/
+/** Section: Animations **/
 /* pulse animation */
 .anim_pulse {
     animation: pulse 0.5s infinite;
