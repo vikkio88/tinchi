@@ -1,11 +1,10 @@
 /**
-Animations
+Section: Animations
 **/
-
+/* pulse animation */
 .anim_pulse {
     animation: pulse 0.5s infinite;
 }
-
 @keyframes pulse {
     0% {
         transform: scale(0.95);
@@ -19,7 +18,7 @@ Animations
         transform: scale(0.95);
     }
 }
-
+/* spin animation */
 .anim_spin {
     animation: spin 0.5s linear infinite;
 }

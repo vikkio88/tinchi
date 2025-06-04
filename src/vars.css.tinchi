@@ -1,3 +1,5 @@
+/* Section: Themed Dark/Light Colours */
+/* Default theme */
 :root {
     --main-font-color: __DARK__;
     --main-font-faint-color: __DARK_FAINT__;
@@ -5,6 +7,7 @@
     --main-bg-faint-color: __LIGHT_FAINT__;
 }
 
+/* dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
         --main-font-color: __LIGHT__;
@@ -14,6 +17,7 @@
     }
 }
 
+/* light theme */
 @media (prefers-color-scheme: light) {
     :root {
         --main-font-color: __DARK__;
@@ -22,7 +26,8 @@
         --main-bg-faint-color: __LIGHT_FAINT__;
     }
 }
-
+/* Section: Colours */
+/* var for all colours */
 :root {
     --primary-color: __PRIMARY__;
     --primary-v1-color: __PRIMARY_1__;
@@ -92,7 +97,9 @@
     --white-color: __WHITE__;
     --white-1-color: __WHITE_1__;
     --white-2-color: __WHITE_2__;
-
+}
+/* spacing, borders and sizes variables */
+:root {
     --border-radius: .5rem;
     --input-border-radius: 10px;
     --pad: 1rem;
