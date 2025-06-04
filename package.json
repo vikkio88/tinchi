@@ -11,7 +11,7 @@
   "scripts": {
     "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets",
     "test:gen:example-merge": "rm -rf test/example/assets && node index.js generate test/example/assets style.css",
-    "build": "node scripts/gendoc.js",
+    "build": "node scripts/gendoc.mjs",
     "prepublishOnly": "npm run build",
     "test": "vitest",
     "dev": "vite",

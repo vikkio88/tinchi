@@ -1,15 +1,18 @@
 import fs from "node:fs";
 import { loadStyles } from "./helpers/loadStyles.mjs";
 
-const folder = "src";
+const srcFolder = "src";
+const outputClasses = "docs.classes.json";
+const outputSections = "docs.sections.json";
 const files = ["vars.css.tinchi", "index.css", "animations.css"];
 
 const SECTION_REGEXP = /\/\*+.?Section:(.+?).?\*+\//g;
 const SECTION_REGEXP_NC = /\/\*+.?Section:.+\*+\//g;
-const CLASS_BLOCK_REGEXP = /\/\*\s*([^*]+?)\s*\*\/\s*\.(\w[\w-]*)\s*{([^}]+)}/g;
+const UNIFIED_BLOCK_REGEXP =
+  /(?:\/\*\s*([^*]+?)\s*\*\/\s*)?([.#]?\w[\w-]*)\s*{([^}]+)}/g;
 
 async function generateDoc() {
-  const stylesBody = loadStyles(folder, files);
+  const stylesBody = loadStyles(srcFolder, files);
   let sectionsMatches = [...stylesBody.matchAll(SECTION_REGEXP)];
   const sections = sectionsMatches.map((m) => m[1].trim());
   const sectionsBodies = stylesBody
@@ -44,8 +47,8 @@ async function generateDoc() {
     classesBySection[section] = [];
     const singleSection = sectionsBodies[i];
     let match;
-    while ((match = CLASS_BLOCK_REGEXP.exec(singleSection)) !== null) {
-      const [, description, name, rawValues] = match;
+    while ((match = UNIFIED_BLOCK_REGEXP.exec(singleSection)) !== null) {
+      const [, maybeDescription, name, rawValues] = match;
 
       const values = rawValues
         .trim()
@@ -54,9 +57,9 @@ async function generateDoc() {
         .filter(Boolean);
 
       const cssClass = {
-        name,
+        name: name.replace(/^[.#]/, ""),
         section,
-        description: description.trim(),
+        description: maybeDescription?.trim() || `${section}: ${name}`,
         values,
       };
 
@@ -65,8 +68,14 @@ async function generateDoc() {
     }
   }
 
-  fs.writeFileSync("classes.json", JSON.stringify(classes, null, 2));
-  fs.writeFileSync("sections.json", JSON.stringify(classesBySection, null, 2));
+  fs.writeFileSync(
+    `${srcFolder}/${outputClasses}`,
+    JSON.stringify(classes, null, 2)
+  );
+  fs.writeFileSync(
+    `${srcFolder}/${outputSections}`,
+    JSON.stringify(classesBySection, null, 2)
+  );
 }
 
 generateDoc();

@@ -98,6 +98,8 @@
     --white-1-color: __WHITE_1__;
     --white-2-color: __WHITE_2__;
 }
+
+/* Section: Sizes variables */
 /* spacing, borders and sizes variables */
 :root {
     --border-radius: .5rem;

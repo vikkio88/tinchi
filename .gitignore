@@ -1,4 +1,5 @@
 node_modules/
 
 .tinchirc
-src/doc.json
+src/docs.classes.json
+src/docs.sections.json
