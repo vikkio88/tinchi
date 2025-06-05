@@ -12,6 +12,8 @@
     "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets",
     "test:gen:example-merge": "rm -rf test/example/assets && node index.js generate test/example/assets style.css",
     "build": "node scripts/gendoc.mjs",
+    "build:example": "vite build --config vite.examples.config.js",
+    "deploy:example": "surge --domain tinchi-docs.surge.sh/ test/example/dist/",
     "prepublishOnly": "npm run build",
     "test": "vitest",
     "dev": "vite --config vite.examples.config.js",

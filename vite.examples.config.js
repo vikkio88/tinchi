@@ -4,6 +4,10 @@ import { watchAndRun } from "vite-plugin-watch-and-run";
 import path from "node:path";
 
 export default defineConfig({
+  root: "test/example",
+  build: {
+    outDir: "dist",
+  },
   server: {
     open: "./test/example/",
   },
