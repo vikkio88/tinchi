@@ -4,6 +4,8 @@ from sicilian: _Tìnci_ (ph: tin-chee) = To Paint.
 
 A small set of css utils classes to quickly startup your css project without having to copy paste snippets all over the place.
 
+Kind of like a small lightweight and ugly tailwind, but less config heavy.
+
 ## How to use it
 ```
 npm i -g tinchi
