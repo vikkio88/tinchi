@@ -219,6 +219,9 @@ h3 {
 .bg-secondary_1 {
   background-color: var(--secondary-v1-color);
 }
+.bg-main-bg-faint {
+  background-color: var(--main-bg-faint-color);
+}
 .success {
   color: var(--success-color);
 }
@@ -404,6 +407,12 @@ Section: Utils
 }
 
 /** Section: Custom Components **/
+/* code  component */
+code {
+  background-color: var(--main-bg-faint-color);
+  border-radius: var(--border-radius);
+  padding: var(--pad);
+}
 /* tooltip: add data-tooltip="CONTENT" to show content on hover */
 [data-tooltip] {
   position: relative;
