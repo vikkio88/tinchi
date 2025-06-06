@@ -1,0 +1,6 @@
+/* Section: Components */
+article {
+  padding: var(--pad);
+  border-radius: var(--border-radius);
+  background-color: var(--main-bg-faint-color);
+}

@@ -4,12 +4,12 @@ import { loadStyles } from "./helpers/loadStyles.mjs";
 const srcFolder = "src";
 const outputClasses = "docs.classes.json";
 const outputSections = "docs.sections.json";
-const files = ["vars.css.tinchi", "index.css", "animations.css"];
+const files = ["vars.css.tinchi", "index.css", "animations.css", "components.css"];
 
 const SECTION_REGEXP = /\/\*+.?Section:(.+?).?\*+\//g;
 const SECTION_REGEXP_NC = /\/\*+.?Section:.+\*+\//g;
 const UNIFIED_BLOCK_REGEXP =
-  /(?:\/\*\s*([^*]+?)\s*\*\/\s*)?([.#]?\w[\w-]*)\s*{([^}]+)}/g;
+  /(?:\/\*\s*([\s\S]*?)\s*\*\/\s*)?([.#]?[^\s,{]+)\s*{([^}]+)}/g;
 
 async function generateDoc() {
   const stylesBody = loadStyles(srcFolder, files);
@@ -28,6 +28,7 @@ async function generateDoc() {
   /**
    * @typedef CSSClass
    * @property {string} name
+   * @property {boolean} isClass
    * @property {string} section
    * @property {string} description
    * @property {string[]} values
@@ -48,23 +49,33 @@ async function generateDoc() {
     const singleSection = sectionsBodies[i];
     let match;
     while ((match = UNIFIED_BLOCK_REGEXP.exec(singleSection)) !== null) {
-      const [, maybeDescription, name, rawValues] = match;
+      const [, maybeDescription, selectorList, rawValues] = match;
 
-      const values = rawValues
-        .trim()
-        .split(";")
-        .map((line) => line.trim())
-        .filter(Boolean);
+      const description = maybeDescription?.trim().replace(/\s+/g, " ");
 
-      const cssClass = {
-        name: name.replace(/^[.#]/, ""),
-        section,
-        description: maybeDescription?.trim() || `${section}: ${name}`,
-        values,
-      };
+      const selectors = selectorList
+        .split(",")
+        .map((s) => s.trim())
+        .filter((s) => s && !s.includes(":"));
 
-      classes.push(cssClass);
-      classesBySection[section].push(cssClass);
+      for (const sel of selectors) {
+        const values = rawValues
+          .trim()
+          .split(";")
+          .map((line) => line.trim())
+          .filter(Boolean);
+
+        const cssClass = {
+          name: sel.replace(/^[.#]/, ""),
+          section,
+          description: description || `${section}: ${sel}`,
+          values,
+          isClass: sel.startsWith("."),
+        };
+
+        classes.push(cssClass);
+        classesBySection[section].push(cssClass);
+      }
     }
   }
 
