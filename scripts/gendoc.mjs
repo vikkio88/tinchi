@@ -4,7 +4,12 @@ import { loadStyles } from "./helpers/loadStyles.mjs";
 const srcFolder = "src";
 const outputClasses = "docs.classes.json";
 const outputSections = "docs.sections.json";
-const files = ["vars.css.tinchi", "index.css", "animations.css", "components.css"];
+const files = [
+  "vars.css.tinchi",
+  "index.css",
+  "animations.css",
+  "components.css",
+];
 
 const SECTION_REGEXP = /\/\*+.?Section:(.+?).?\*+\//g;
 const SECTION_REGEXP_NC = /\/\*+.?Section:.+\*+\//g;
@@ -28,7 +33,7 @@ async function generateDoc() {
   /**
    * @typedef CSSClass
    * @property {string} name
-   * @property {boolean} isClass
+   * @property {boolean} isClass //TODO: this should be an enum, isClass,Element or pseudo selector so you can remove the usage from the doc
    * @property {string} section
    * @property {string} description
    * @property {string[]} values
@@ -51,12 +56,12 @@ async function generateDoc() {
     while ((match = UNIFIED_BLOCK_REGEXP.exec(singleSection)) !== null) {
       const [, maybeDescription, selectorList, rawValues] = match;
 
-      const description = maybeDescription?.trim().replace(/\s+/g, " ");
+      let description = maybeDescription?.trim().replace(/\s+/g, " ");
 
       const selectors = selectorList
         .split(",")
         .map((s) => s.trim())
-        .filter((s) => s && !s.includes(":"));
+        .filter((s) => s && (s.includes("root") || !s.includes(":")));
 
       for (const sel of selectors) {
         const values = rawValues
@@ -65,10 +70,19 @@ async function generateDoc() {
           .map((line) => line.trim())
           .filter(Boolean);
 
+        let name = sel.replace(/^[.#]/, "");
+        description = description || `${section}: ${sel}`;
+        // can be bothered to rewrite the whole regexp so
+        // I am monkey patching the wrong selector
+        if (name.includes(")")) {
+          name = `${name.replace(")", "")}`;
+          description = `${description.replace(")", "")}`;
+        }
+
         const cssClass = {
-          name: sel.replace(/^[.#]/, ""),
+          name,
           section,
-          description: description || `${section}: ${sel}`,
+          description,
           values,
           isClass: sel.startsWith("."),
         };
