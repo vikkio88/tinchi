@@ -48,27 +48,23 @@ npx tinchi help
 usage:
   tinchi [method] [vars]
 
-methods:
+Usage:
+  tinchi [method] [options]
 
-init - thinchi init [output/file/path]
-  
-  It will init the .tinchirc file, where you can specify configs.
-  If specified as argument you can define the outputfile path.
+Methods:
 
+  init  -  tinchi init [output/file/path]
+    Creates a .tinchirc configuration file.
+    You can optionally specify an output path.
 
-generate - thinchi generate [path/of/file] [filename]
-    
-  It will generate tinchi CSS in the specified path/of/file.
-  If no parameter is specified, it will use the .tinchirc file 'output' parameter.
-  The generator will use color definitions from the .tinchirc file, otherwise defaults.
+  generate  -  tinchi generate [path/of/file] [filename]
+    Generates CSS using the config in .tinchirc.
+    If no path or filename is provided, it uses the 'output' field from .tinchirc.
+    Reads colors from .tinchirc, falling back to defaults if not defined.
 
-    m - merge: will merge into a single file (not needed if you specified the filename parameter).
-        example: tinchi generate -m folder/file.css -> will generate only a file.
-        
-
-search - tinchi search flex direction column
-
-  It will show all the classes that apply some style like "flex direction column".        
+  search  -  tinchi search [query]
+    Finds utility classes that match the given style keywords.
+    Example: tinchi search flex direction column
 ```
 ## Examples and colours
 You can find a messy example with defaults in [here](https://tinchi-docs.surge.sh/)
