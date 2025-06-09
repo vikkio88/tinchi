@@ -1,0 +1,22 @@
+{
+  "mQSmartphone": {
+    "name": "Media Query: Smartphone",
+    "text": "@media (max-width: 600px) {\n  body {\n    background: red;\n  }\n}",
+    "description": "Media query breakpoint for small screen devices like phones"
+  },
+  "mQTablet": {
+    "name": "Media Query: Tablet",
+    "text": "@media (min-width: 601px) and (max-width: 1024px) {\n  body {\n    background: green;\n  }\n}",
+    "description": "Media query breakpoint for medium screen devices like tablets"
+  },
+  "mQDesktop": {
+    "name": "Media Query: Desktop",
+    "text": "@media (min-width: 1025px) {\n  body {\n    background: blue;\n  }\n}",
+    "description": "Media query breakpoint for standard desktop and laptop screens"
+  },
+  "mQLargeDesktop": {
+    "name": "Media Query: Large Desktop",
+    "text": "@media (min-width: 1440px) {\n  body {\n    background: purple;\n  }\n}",
+    "description": "Media query breakpoint for large screens and ultrawide monitors"
+  }
+}
