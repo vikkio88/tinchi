@@ -21,13 +21,15 @@ article {
   background-color: var(--main-bg-faint-color);
 }
 
-/* Basic tooltip data-tooltip="something" */
-/* Ensure the tooltip anchor has relative positioning */
+/* 
+  Basic tooltip data-tooltip="something"
+  data-tooltip-position="top" <- by default
+  "bottom" "left" and "right" are also accepted
+*/
 [data-tooltip] {
   position: relative;
 }
 
-/* Base tooltip style */
 [data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -43,7 +45,6 @@ article {
   z-index: 1000;
 }
 
-/* Show tooltip on hover */
 [data-tooltip]:hover::after {
   opacity: 0.8;
 }
