@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "vite": "^5.2.11",
-    "vite-plugin-watch-and-run": "^1.7.0",
+    "vite-plugin-command": "^1.0.0",
     "vitest": "^1.6.0"
   },
   "dependencies": {

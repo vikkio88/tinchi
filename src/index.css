@@ -255,7 +255,7 @@ button:hover {
 
 button:focus,
 button:focus-visible {
-  outline: var(--border-radius) auto -webkit-focus-ring-color;
+  filter: brightness(90%);
 }
 
 button:disabled {
@@ -299,6 +299,26 @@ button.warning {
 button.warning:hover {
   background-color: var(--warning-v1-color);
 }
+
+button.p {
+  background-color: var(--primary-v1-color);
+}
+
+button.p:hover {
+  background-color: var(--primary-color);
+  color: var(--main-bg-color);
+}
+
+button.s {
+  background-color: var(--secondary-color);
+  color: var(--main-bg-color);
+}
+
+button.s:hover {
+  background-color: var(--primary-v1-color);
+  color: var(--main-bg-color);
+}
+
 /* transparent big variant */
 button.big {
   padding: 2rem 3rem;

@@ -1,168 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Testing Tinchi</title>
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
+    <link rel="stylesheet" href="./assets/style.css" />
 
-<style>
-    .dash {
+    <style>
+      .dash {
         border: var(--borders-dashed-danger);
         background-color: var(--danger-faint-color);
         padding: var(--pad);
-    }
+      }
 
-    .darkColour {
+      .darkColour {
         color: var(--black-color);
-    }
-</style>
+      }
 
-<body>
+      nav {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+      }
+
+      nav a {
+        margin-right: 1rem;
+        text-decoration: none;
+      }
+
+      .color-box {
+        padding: var(--pad);
+        margin: 0.25rem;
+        border-radius: 4px;
+        font-size: 0.875rem;
+      }
+
+      .color-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 1rem;
+      }
+
+      .section {
+        margin-top: 3rem;
+      }
+
+      .section#colours > h2 {
+        margin-left: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
     <main class="f cs">
-        <div class="pos-atl">
-            <a href="https://github.com/vikkio88/tinchi">Tinchi Codebase</a>
-        </div>
-        <div class="pos-atr">.Pos-Abr = position: absolute top right</div>
-        <div class="f rc g_5">
-            <div class="brd pd2">.Brd.Pd2</div>
-            <div class="pd brd h_inv c-ptr">.Brd.Pd.H_Inv.C-Ptr</div>
-            <div>
-                <a href="#">Normal a:href</a>
-            </div>
-        </div>
-        <div class="f1 f cc">
-            <div class="mg ta-c">
-                <h1>Typography h1</h1>
-                <h2>Typography h2</h2>
-                <h3>Typography h3</h3>
-                <div class="pd bg-primary danger brd mg" data-tooltip="Some Stuff">
-                    Over for a data-tooltip
-                </div>
+      <nav>
+        <a href="#tooltips">Tooltips</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#colours">Colours</a>
+        <a href="https://github.com/vikkio88/tinchi">Source 🔗</a>
+      </nav>
 
-                <div class="pd">
-                    <h3>Tooltips</h3>
-<button data-tooltip="Tooltip on top">Top</button>
-<button data-tooltip="Tooltip on bottom" data-tooltip-position="bottom">Bottom</button>
-<button data-tooltip="Tooltip on left" data-tooltip-position="left">Left</button>
-<button data-tooltip="Tooltip on right" data-tooltip-position="right">Right</button>
-                </div>
+      <div class="pos-atr">.Pos-Abr = position: absolute top right</div>
 
-                <div class="mg">
-                    <p class="primary mg0">.primary text</p>
-                    <p class="primary_1 mg0">.primary_1 text</p>
-                    <p class="secondary mg0">.secondary text</p>
-                    <p class="secondary_1 mg0">.secondary_1 text</p>
-                    <p class="success mg0">.success text</p>
-                    <p class="warning mg0">.warning text</p>
-                    <p class="danger mg0">.danger text</p>
-                    <p class="faint mg0">.faint text</p>
-                </div>
-            </div>
+      <section class="f rc g_5">
+        <div class="brd pd2">
+          <div>Borders and double padding</div>
         </div>
+        <div class="pd brd h_inv c-ptr">
+          <div>Border Padding Hover Invert Cursor:Pointer</div>
+        </div>
+        <div><a href="#">Normal a:href</a></div>
+      </section>
+
+      <section class="section f1 f cc" id="typography">
+        <div class="mg ta-c">
+          <h1>Typography h1</h1>
+          <h2>Typography h2</h2>
+          <h3>Typography h3</h3>
+          <div class="mg">
+            <p class="primary mg0">.primary text</p>
+            <p class="primary_1 mg0">.primary_1 text</p>
+            <p class="secondary mg0">.secondary text</p>
+            <p class="secondary_1 mg0">.secondary_1 text</p>
+            <p class="success mg0">.success text</p>
+            <p class="warning mg0">.warning text</p>
+            <p class="danger mg0">.danger text</p>
+            <p class="faint mg0">.faint text</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="buttons">
         <h2>Buttons</h2>
         <div class="f f1 rs g">
-            <button class="big warning">.Big.Warning</button>
-            <button class="n-btn">Clickable Non-Button</button>
-            <button>Just Button</button>
-            <button class="small">.Small</button>
-            <button class="small success">.Small.Success</button>
-            <button class="transparent">.Transparent</button>
-            <div class="dash f cc">
-                <p class="mg0">
-                    <pre>
-border: var(--borders-dashed-danger);
-background-color: var(--danger-faint-color);
-                    </pre>
-                </p>
-                <button class="small danger">.Small.Danger</button>
-            </div>
-        </div>
+          <button class="big warning">.Big.Warning</button>
+          <button class="n-btn">Clickable Non-Button</button>
+          <button>Button</button>
+          <button class="p">Primary</button>
+          <button class="s">Secondary</button>
+          <button class="small">.Small</button>
+          <button class="small success">.Small.Success</button>
+          <button class="transparent">.Transparent</button>
 
+          <div class="dash f cc">
+            <pre class="mg0">
+border: var(--borders-dashed-danger);  
+background-color: var(--danger-faint-color);</pre
+            >
+            <button class="small danger">.Small.Danger</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="colours">
         <h2>Colours</h2>
-        <div class="fiwr mg">
-            <div class="pd" style="background-color: var(--primary-color);">var(--primary-color)</div>
-<div class="pd" style="background-color: var(--primary-v1-color);">var(--primary-v1-color)</div>
-<div class="pd" style="background-color: var(--secondary-color);">var(--secondary-color)</div>
-<div class="pd" style="background-color: var(--secondary-v1-color);">var(--secondary-v1-color)</div>
-<div class="pd" style="background-color: var(--accent-color);">var(--accent-color)</div>
-<div class="pd" style="background-color: var(--accent-v1-color);">var(--accent-v1-color)</div>
-<div class="pd" style="background-color: var(--accent-faint-color);">var(--accent-faint-color)</div>
-<div class="pd" style="background-color: var(--danger-color);">var(--danger-color)</div>
-<div class="pd" style="background-color: var(--danger-v1-color);">var(--danger-v1-color)</div>
-<div class="pd" style="background-color: var(--danger-faint-color);">var(--danger-faint-color)</div>
-<div class="pd" style="background-color: var(--warning-color);">var(--warning-color)</div>
-<div class="pd" style="background-color: var(--warning-v1-color);">var(--warning-v1-color)</div>
-<div class="pd" style="background-color: var(--warning-faint-color);">var(--warning-faint-color)</div>
-<div class="pd" style="background-color: var(--success-color);">var(--success-color)</div>
-<div class="pd" style="background-color: var(--success-v1-color);">var(--success-v1-color)</div>
-<div class="pd" style="background-color: var(--success-faint-color);">var(--success-faint-color)</div>
+        <div class="color-grid">
+          <!-- Primary to Accent -->
+          <div class="color-box" style="background-color: var(--primary-color)">
+            --primary-color
+          </div>
+          <div
+            class="color-box"
+            style="background-color: var(--primary-v1-color)"
+          >
+            --primary-v1-color
+          </div>
+          <div
+            class="color-box"
+            style="background-color: var(--secondary-color)"
+          >
+            --secondary-color
+          </div>
+          <div
+            class="color-box"
+            style="background-color: var(--secondary-v1-color)"
+          >
+            --secondary-v1-color
+          </div>
+          <div class="color-box" style="background-color: var(--accent-color)">
+            --accent-color
+          </div>
+          <div
+            class="color-box"
+            style="background-color: var(--accent-v1-color)"
+          >
+            --accent-v1-color
+          </div>
+          <div
+            class="color-box"
+            style="background-color: var(--accent-faint-color)"
+          >
+            --accent-faint-color
+          </div>
 
-<div class="pd" style="background-color: var(--blue-color);">var(--blue-color)</div>
-<div class="pd" style="background-color: var(--blue-1-color);">var(--blue-1-color)</div>
-<div class="pd" style="background-color: var(--blue-2-color);">var(--blue-2-color)</div>
+          <!-- Semantic colors -->
+          <div class="color-box" style="background-color: var(--danger-color)">
+            --danger-color
+          </div>
+          <div class="color-box" style="background-color: var(--warning-color)">
+            --warning-color
+          </div>
+          <div class="color-box" style="background-color: var(--success-color)">
+            --success-color
+          </div>
 
-<div class="pd" style="background-color: var(--red-color);">var(--red-color)</div>
-<div class="pd" style="background-color: var(--red-1-color);">var(--red-1-color)</div>
-<div class="pd" style="background-color: var(--red-2-color);">var(--red-2-color)</div>
+          <!-- Extended palette -->
+          <div class="pd" style="background-color: var(--blue-color)">
+            var(--blue-color)
+          </div>
+          <div class="pd" style="background-color: var(--blue-1-color)">
+            var(--blue-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--blue-2-color)">
+            var(--blue-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--green-color);">var(--green-color)</div>
-<div class="pd" style="background-color: var(--green-1-color);">var(--green-1-color)</div>
-<div class="pd" style="background-color: var(--green-2-color);">var(--green-2-color)</div>
+          <div class="pd" style="background-color: var(--red-color)">
+            var(--red-color)
+          </div>
+          <div class="pd" style="background-color: var(--red-1-color)">
+            var(--red-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--red-2-color)">
+            var(--red-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--lime-color);">var(--lime-color)</div>
-<div class="pd" style="background-color: var(--lime-1-color);">var(--lime-1-color)</div>
-<div class="pd" style="background-color: var(--lime-2-color);">var(--lime-2-color)</div>
+          <div class="pd" style="background-color: var(--green-color)">
+            var(--green-color)
+          </div>
+          <div class="pd" style="background-color: var(--green-1-color)">
+            var(--green-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--green-2-color)">
+            var(--green-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--light-green-color);">var(--light-green-color)</div>
-<div class="pd" style="background-color: var(--light-green-1-color);">var(--light-green-1-color)</div>
-<div class="pd" style="background-color: var(--light-green-2-color);">var(--light-green-2-color)</div>
+          <div class="pd" style="background-color: var(--lime-color)">
+            var(--lime-color)
+          </div>
+          <div class="pd" style="background-color: var(--lime-1-color)">
+            var(--lime-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--lime-2-color)">
+            var(--lime-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--yellow-color);">var(--yellow-color)</div>
-<div class="pd" style="background-color: var(--yellow-1-color);">var(--yellow-1-color)</div>
-<div class="pd" style="background-color: var(--yellow-2-color);">var(--yellow-2-color)</div>
+          <div class="pd" style="background-color: var(--light-green-color)">
+            var(--light-green-color)
+          </div>
+          <div class="pd" style="background-color: var(--light-green-1-color)">
+            var(--light-green-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--light-green-2-color)">
+            var(--light-green-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--orange-color);">var(--orange-color)</div>
-<div class="pd" style="background-color: var(--orange-1-color);">var(--orange-1-color)</div>
-<div class="pd" style="background-color: var(--orange-2-color);">var(--orange-2-color)</div>
+          <div class="pd" style="background-color: var(--yellow-color)">
+            var(--yellow-color)
+          </div>
+          <div class="pd" style="background-color: var(--yellow-1-color)">
+            var(--yellow-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--yellow-2-color)">
+            var(--yellow-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--teal-color);">var(--teal-color)</div>
-<div class="pd" style="background-color: var(--teal-1-color);">var(--teal-1-color)</div>
-<div class="pd" style="background-color: var(--teal-2-color);">var(--teal-2-color)</div>
+          <div class="pd" style="background-color: var(--orange-color)">
+            var(--orange-color)
+          </div>
+          <div class="pd" style="background-color: var(--orange-1-color)">
+            var(--orange-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--orange-2-color)">
+            var(--orange-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--amber-color);">var(--amber-color)</div>
-<div class="pd" style="background-color: var(--amber-1-color);">var(--amber-1-color)</div>
-<div class="pd" style="background-color: var(--amber-2-color);">var(--amber-2-color)</div>
+          <div class="pd" style="background-color: var(--teal-color)">
+            var(--teal-color)
+          </div>
+          <div class="pd" style="background-color: var(--teal-1-color)">
+            var(--teal-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--teal-2-color)">
+            var(--teal-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--brown-color);">var(--brown-color)</div>
-<div class="pd" style="background-color: var(--brown-1-color);">var(--brown-1-color)</div>
-<div class="pd" style="background-color: var(--brown-2-color);">var(--brown-2-color)</div>
+          <div class="pd" style="background-color: var(--amber-color)">
+            var(--amber-color)
+          </div>
+          <div class="pd" style="background-color: var(--amber-1-color)">
+            var(--amber-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--amber-2-color)">
+            var(--amber-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--gray-color);">var(--gray-color)</div>
-<div class="pd" style="background-color: var(--gray-1-color);">var(--gray-1-color)</div>
-<div class="pd" style="background-color: var(--gray-2-color);">var(--gray-2-color)</div>
+          <div class="pd" style="background-color: var(--brown-color)">
+            var(--brown-color)
+          </div>
+          <div class="pd" style="background-color: var(--brown-1-color)">
+            var(--brown-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--brown-2-color)">
+            var(--brown-2-color)
+          </div>
 
-<div class="pd" style="background-color: var(--black-color);">var(--black-color)</div>
-<div class="pd" style="background-color: var(--black-1-color);">var(--black-1-color)</div>
-<div class="pd" style="background-color: var(--black-2-color);">var(--black-2-color)</div>
+          <div class="pd" style="background-color: var(--gray-color)">
+            var(--gray-color)
+          </div>
+          <div class="pd" style="background-color: var(--gray-1-color)">
+            var(--gray-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--gray-2-color)">
+            var(--gray-2-color)
+          </div>
 
-<div class="pd darkColour" style="background-color: var(--white-color);">var(--white-color)</div>
-<div class="pd darkColour" style="background-color: var(--white-1-color);">var(--white-1-color)</div>
-<div class="pd darkColour" style="background-color: var(--white-2-color);">var(--white-2-color)</div>
+          <div class="pd" style="background-color: var(--black-color)">
+            var(--black-color)
+          </div>
+          <div class="pd" style="background-color: var(--black-1-color)">
+            var(--black-1-color)
+          </div>
+          <div class="pd" style="background-color: var(--black-2-color)">
+            var(--black-2-color)
+          </div>
+
+          <div
+            class="pd darkColour"
+            style="background-color: var(--white-color)"
+          >
+            var(--white-color)
+          </div>
+          <div
+            class="pd darkColour"
+            style="background-color: var(--white-1-color)"
+          >
+            var(--white-1-color)
+          </div>
+          <div
+            class="pd darkColour"
+            style="background-color: var(--white-2-color)"
+          >
+            var(--white-2-color)
+          </div>
         </div>
+      </section>
 
+      <section class="section pd" id="tooltips">
+        <h3>Tooltips</h3>
+        <button data-tooltip="Tooltip on top">Top</button>
+        <button data-tooltip="Tooltip on bottom" data-tooltip-position="bottom">
+          Bottom
+        </button>
+        <button data-tooltip="Tooltip on left" data-tooltip-position="left">
+          Left
+        </button>
+        <button data-tooltip="Tooltip on right" data-tooltip-position="right">
+          Right
+        </button>
+      </section>
+
+      <section class="section" id="components">
         <h2>Components</h2>
         <article>
-            <strong>Some Stuff</strong>
-            <pre>
+          <strong>Some Stuff</strong>
+          <pre>
 &lt;article&gt;
   Some Stuff
 &lt;/article&gt;
-            </pre>
+        </pre
+          >
         </article>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>
