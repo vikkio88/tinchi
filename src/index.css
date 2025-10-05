@@ -56,6 +56,7 @@ tr:not(thead tr):hover {
   background-color: var(--secondary-v1-color);
   color: var(--white-1-color);
 }
+
 tr:not(thead tr):hover a {
   color: var(--white-1-color);
 }
@@ -401,6 +402,10 @@ button.n-btn {
 
 button.n-btn:hover {
   opacity: 0.8;
+}
+
+button.n-btn:disabled {
+  cursor: not-allowed;
 }
 
 /* Section: Inputs */
