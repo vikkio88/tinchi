@@ -10,18 +10,16 @@ export function init(args: string[]) {
 
   if (fs.existsSync(configPath) && !force) {
     console.error(
-      `${c.red("⚠️  Project already initialized.")} ${c.i(
-        "Use --force to overwrite."
-      )}\n${c.b("File:")} ${configPath}`
+      `${c.red("⚠️  Project already initialized.")}
+      ${c.i("Use --force to overwrite.")}\n${c.b("File:")} ${configPath}`
     );
     process.exit(1);
   }
 
   fs.writeFileSync(configPath, JSON.stringify(DEFAULT_CONFIG, null, 2));
-  console.log(`${c.green("✅ Project initialized at")} ${c.b(configPath)}`);
+  console.log(`${c.green("✅ Tinchi config initialized in:")}
+  ${c.b(configPath)}`);
   console.log(
-    `Run ${c.b("`tinchi generate`")} ${c.i(
-      "to generate your css file."
-    )}`
+    `Run ${c.b("`tinchi generate`")} ${c.i("to generate your css file.")}`
   );
 }
