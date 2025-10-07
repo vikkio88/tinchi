@@ -32,3 +32,5 @@ export const DEFAULT_CONFIG: TinchiConfig = {
   colors: DEFAULT_COLOURS,
   components: DEFAULT_COMPONENTS,
 };
+
+export const TINCHI_CONFIG_FILENAME = ".tinchirc"
