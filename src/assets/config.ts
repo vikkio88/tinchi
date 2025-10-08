@@ -1,3 +1,4 @@
+import path from "node:path";
 import {
   DEFAULT_COLOURS,
   DEFAULT_COMPONENTS,
@@ -16,6 +17,8 @@ export type TinchiConfig = {
     colorScheme: "both" | "dark" | "light";
   };
 
+  /** config for the vars */
+  vars: Record<string, string>;
   /** config for the default colours */
   colors: Record<keyof typeof DEFAULT_COLOURS, string>;
   /** Whether you want to include or exclude certain components */
@@ -29,8 +32,64 @@ export const DEFAULT_CONFIG: TinchiConfig = {
     minify: false,
     colorScheme: "both",
   },
+  vars: {},
   colors: DEFAULT_COLOURS,
   components: DEFAULT_COMPONENTS,
 };
 
-export const TINCHI_CONFIG_FILENAME = ".tinchirc"
+export const TINCHI_CONFIG_FILENAME = ".tinchirc";
+
+export const CSS_FILES = {
+  head: {
+    path: "head.css",
+    isTemplate: true,
+  },
+  themeBoth: {
+    path: "themeBoth.css",
+    isTemplate: true,
+  },
+  themeDark: {
+    path: "themeDark.css",
+    isTemplate: true,
+  },
+  themeLight: {
+    path: "themeLight.css",
+    isTemplate: true,
+  },
+  colors: {
+    path: "colors.css",
+    isTemplate: true,
+  },
+  vars: {
+    path: "vars.css",
+    isTemplate: true,
+  },
+  overrides: {
+    path: "overrides.css",
+    isTemplate: false,
+  },
+  main: {
+    path: "main.css",
+    isTemplate: false,
+  },
+  components: {
+    path: "components.css",
+    isTemplate: false,
+  },
+  animations: {
+    path: "animations.css",
+    isTemplate: false,
+  },
+  debug: {
+    path: "debug.css",
+    isTemplate: false,
+  },
+};
+
+export function getCssFilePath(
+  assetsFolders: string,
+  file: keyof typeof CSS_FILES
+) {
+  const f = CSS_FILES[file];
+  return path.join(assetsFolders, f.isTemplate ? `${f.path}.tinchi` : f.path);
+}

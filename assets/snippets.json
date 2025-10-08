@@ -1,0 +1,27 @@
+{
+  "mQSmartphone": {
+    "name": "Media Query: Smartphone",
+    "text": "@media (max-width: 600px) {\n  body {\n    background: red;\n  }\n}",
+    "description": "Media query breakpoint for small screen devices like phones"
+  },
+  "mQTablet": {
+    "name": "Media Query: Tablet",
+    "text": "@media (min-width: 601px) and (max-width: 1024px) {\n  body {\n    background: green;\n  }\n}",
+    "description": "Media query breakpoint for medium screen devices like tablets"
+  },
+  "mQDesktop": {
+    "name": "Media Query: Desktop",
+    "text": "@media (min-width: 1025px) {\n  body {\n    background: blue;\n  }\n}",
+    "description": "Media query breakpoint for standard desktop and laptop screens"
+  },
+  "mQLargeDesktop": {
+    "name": "Media Query: Large Desktop",
+    "text": "@media (min-width: 1440px) {\n  body {\n    background: purple;\n  }\n}",
+    "description": "Media query breakpoint for large screens and ultrawide monitors"
+  },
+  "index": {
+    "name": "Index.html",
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>__TITLE__</title>\n    <link rel=\"stylesheet\" href=\"__CSS_OUTPUT__\" />\n  </head>\n\n  <body class=\"fvh f\">\n    <main class=\"f1\">\n      \n    </main>\n  </body>\n</html>",
+    "description": "A startup index.html file with tinchi info"
+  }
+}

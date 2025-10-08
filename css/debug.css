@@ -1,0 +1,13 @@
+/* Section: Debug Utils*/
+/* Debug colours an element blue borders and red bg to display its boundaries */
+.debug {
+  border: var(--borders);
+  border-color: blue;
+  background-color: red;
+}
+/* Debug colours an element red borders and blue bg to display its boundaries */
+.debug1 {
+  border: var(--borders);
+  border-color: red;
+  background-color: blue;
+}

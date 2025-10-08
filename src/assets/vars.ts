@@ -21,9 +21,15 @@ export const DEFAULT_COLOURS = {
   SUCCESS_FAINT: "#a3e3d4",
 };
 
+export const HEAD_VARS = {
+  version: "VERSION",
+};
+
 export const DEFAULT_OUTPUT_PATH = "./public/styles.css";
 
 export const DEFAULT_COMPONENTS = {
+  colors: true,
+  overrides: true,
   animations: true,
   components: true,
   debug: true,

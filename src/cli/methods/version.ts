@@ -11,9 +11,9 @@ type PackageJson = {
 export function getVersion(): string {
   const __dirname = currentScriptDir();
   const pathToPackageJson = isDev()
-    ? join(__dirname, "..", "..", "..", "package.json")
-    // after build it will be on dist/ and package is on .
-    : join(__dirname, "..", "package.json");
+    ? join(__dirname, "..", "..", "package.json")
+    : // after build it will be on dist/ and package is on .
+      join(__dirname, "..", "package.json");
 
   try {
     const content = fs.readFileSync(pathToPackageJson, "utf8");

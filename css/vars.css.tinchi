@@ -1,0 +1,23 @@
+/* Section: Sizes variables */
+/* spacing, borders and sizes variables */
+:root {
+    --border-radius: .5rem;
+    --input-border-radius: 10px;
+    --pad: 1rem;
+    --font-size: 16px;
+    --small-font-size: 12px;
+    --medium-font-size: 18px;
+
+    --borders: 2px var(--main-font-color) solid;
+    --borders-dashed: 2px var(--main-font-color) dashed;
+    --borders-dashed-danger: 2px var(--danger-color) dashed;
+    --borders-dashed-warning: 2px var(--warning-color) dashed;
+    --borders-dashed-success: 2px var(--success-color) dashed;
+    --thin-borders: 1px var(--main-font-color) solid;
+    --box-shadow: 0 .2rem 1rem var(--main-font-color);
+
+    line-height: 1.5;
+
+    color: var(--main-font-color);
+    background-color: var(--main-bg-color);
+}

@@ -6,14 +6,6 @@ code {
   padding: var(--pad);
 }
 
-/* Section: Debug Utils*/
-/* Debug colours an element blue and red to display its boundaries */
-.debug {
-  border: var(--borders);
-  border-color: blue;
-  background-color: red;
-}
-
 /* Section: Components */
 article {
   padding: var(--pad);
@@ -76,4 +68,31 @@ article {
   top: 50%;
   left: 100%;
   transform: translateX(0.5rem) translateY(-50%);
+}
+
+/* Table */
+table {
+  text-align: center;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 1px solid var(--main-font-color);
+  padding: 0.5rem;
+}
+
+td {
+  padding: 0.5rem;
+}
+
+tr:nth-child(even) {
+  background-color: var(--main-bg-faint-color);
+}
+
+tr:not(thead tr):hover {
+  background-color: var(--secondary-v1-color);
+  color: var(--white-1-color);
+}
+
+tr:not(thead tr):hover a {
+  color: var(--white-1-color);
 }
