@@ -1,27 +1,37 @@
 {
   "mQSmartphone": {
+    "type": "css",
     "name": "Media Query: Smartphone",
     "text": "@media (max-width: 600px) {\n  body {\n    background: red;\n  }\n}",
-    "description": "Media query breakpoint for small screen devices like phones"
+    "description": "Media query breakpoint for small screen devices like phones",
+    "isTemplate": false
   },
   "mQTablet": {
+    "type": "css",
     "name": "Media Query: Tablet",
     "text": "@media (min-width: 601px) and (max-width: 1024px) {\n  body {\n    background: green;\n  }\n}",
-    "description": "Media query breakpoint for medium screen devices like tablets"
+    "description": "Media query breakpoint for medium screen devices like tablets",
+    "isTemplate": false
   },
   "mQDesktop": {
+    "type": "css",
     "name": "Media Query: Desktop",
     "text": "@media (min-width: 1025px) {\n  body {\n    background: blue;\n  }\n}",
-    "description": "Media query breakpoint for standard desktop and laptop screens"
+    "description": "Media query breakpoint for standard desktop and laptop screens",
+    "isTemplate": false
   },
   "mQLargeDesktop": {
+    "type": "css",
     "name": "Media Query: Large Desktop",
     "text": "@media (min-width: 1440px) {\n  body {\n    background: purple;\n  }\n}",
-    "description": "Media query breakpoint for large screens and ultrawide monitors"
+    "description": "Media query breakpoint for large screens and ultrawide monitors",
+    "isTemplate": false
   },
   "index": {
+    "type": "html",
     "name": "Index.html",
-    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>__TITLE__</title>\n    <link rel=\"stylesheet\" href=\"__CSS_OUTPUT__\" />\n  </head>\n\n  <body class=\"fvh f\">\n    <main class=\"f1\">\n      \n    </main>\n  </body>\n</html>",
-    "description": "A startup index.html file with tinchi info"
+    "text": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>Some Web Page</title>\n    <link rel=\"stylesheet\" href=\"__CSS_OUTPUT__\" />\n  </head>\n\n  <body class=\"fvh f\">\n    <main class=\"f1\">\n        Some Body\n    </main>\n  </body>\n</html>",
+    "description": "A startup index.html file with tinchi info",
+    "isTemplate": true
   }
 }

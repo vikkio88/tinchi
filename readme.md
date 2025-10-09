@@ -80,8 +80,8 @@ Methods:
     Finds utility classes matching the given keywords.
     Example: tinchi search flex direction column
 
-  snippet   -  tinchi snippet <snippet-name> <file.css>
-    Appends a predefined CSS snippet (like a media query) to the target file.
+  snippet   -  tinchi snippet <snippet-name> <file.css|html>
+    Appends a predefined CSS|html snippet (like a media query) to the target file.
     Use: tinchi snippet list
     to view all available snippets.
 ```

@@ -1,7 +1,7 @@
 import { generate } from "./generate";
 import { help } from "./help";
 import { init } from "./init";
-import { snippets } from "./snippets";
+import { snippet } from "./snippet";
 import { version } from "./version";
 
 const methods = ["help", "init", "generate", "snippets", "version"] as const;
@@ -15,9 +15,9 @@ export const map: Record<MethodName | string, (args: string[]) => void> = {
   i: init,
   generate,
   g: generate,
-  snippets,
-  s: snippets,
-  snip: snippets,
+  snippet,
+  s: snippet,
+  snip: snippet,
   version,
   v: version,
   "-v": version,

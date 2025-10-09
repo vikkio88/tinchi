@@ -10,7 +10,7 @@ import { c } from "../../helpers/colours";
 import { hasForceParameter, loadTinchiConfig } from "../../helpers/cli";
 import { isDev } from "../../helpers/env";
 import { currentScriptDir } from "../../helpers/dir";
-import { fileInterpolator } from "../../helpers/files";
+import { templateInterpolator } from "../../helpers/files";
 import { HEAD_VARS } from "../../assets/vars";
 import { getVersion } from "./version";
 import { minifyCSS } from "../../helpers/minify";
@@ -72,7 +72,7 @@ function getCssFolder() {
 
 function head(cssBaseFolder: string) {
   const head = f(getCssFilePath(cssBaseFolder, "head"));
-  return fileInterpolator(head, { [HEAD_VARS.version]: getVersion() });
+  return templateInterpolator(head, { [HEAD_VARS.version]: getVersion() });
 }
 
 function theme(tinchiRc: TinchiConfig, cssBaseFolder: string) {
@@ -83,23 +83,23 @@ function theme(tinchiRc: TinchiConfig, cssBaseFolder: string) {
       ? "themeDark"
       : "themeLight";
   const template = f(getCssFilePath(cssBaseFolder, themeFile));
-  return fileInterpolator(template, tinchiRc.colors);
+  return templateInterpolator(template, tinchiRc.colors);
 }
 
 function colours(tinchiRc: TinchiConfig, cssBaseFolder: string) {
   if (!tinchiRc.components.colors) return "";
   const template = f(getCssFilePath(cssBaseFolder, "colors"));
-  return fileInterpolator(template, tinchiRc.colors);
+  return templateInterpolator(template, tinchiRc.colors);
 }
 
 function vars(tinchiRc: TinchiConfig, cssBaseFolder: string) {
   const template = f(getCssFilePath(cssBaseFolder, "vars"));
-  return fileInterpolator(template, tinchiRc.vars);
+  return templateInterpolator(template, tinchiRc.vars);
 }
 
 function overrides(tinchiRc: TinchiConfig, cssBaseFolder: string) {
   const template = f(getCssFilePath(cssBaseFolder, "overrides"));
-  return fileInterpolator(template, tinchiRc.vars);
+  return templateInterpolator(template, tinchiRc.vars);
 }
 
 function main(tinchiRc: TinchiConfig, cssBaseFolder: string) {

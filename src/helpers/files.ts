@@ -1,4 +1,4 @@
-export function fileInterpolator(
+export function templateInterpolator(
   template: string,
   vars: Record<string, string>,
   addTrailingReturn: boolean = true
