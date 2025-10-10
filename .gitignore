@@ -36,4 +36,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 old/
 .tinchirc
 test.css
+/tests
+/scripts
 docs*json
