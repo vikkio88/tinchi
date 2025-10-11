@@ -76,9 +76,9 @@ Methods:
     If no path is provided, uses the 'output' field from .tinchirc.
     Pulls colors from .tinchirc or falls back to defaults.
 
-  search    -  tinchi search [query]
-    Finds utility classes matching the given keywords.
-    Example: tinchi search flex direction column
+  docs    -  tinchi docs [query]
+    Finds utility classes/ css selectors matching the given keywords.
+    Example: tinchi docs flex direction column
 
   snippet   -  tinchi snippet <snippet-name> <file.css|html>
     Appends a predefined CSS|html snippet (like a media query) to the target file.

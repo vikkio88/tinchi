@@ -4,6 +4,7 @@ import {
   DEFAULT_COMPONENTS,
   DEFAULT_OUTPUT_PATH,
 } from "./vars";
+import { isDev } from "../helpers/env";
 
 export type TinchiConfig = {
   /** output path */
@@ -92,4 +93,12 @@ export function getCssFilePath(
 ) {
   const f = CSS_FILES[file];
   return path.join(assetsFolders, f.isTemplate ? `${f.path}.tinchi` : f.path);
+}
+
+const ASSETS_FOLDER = "assets";
+export function getAssetsFolder(currentDir: string) {
+  return isDev()
+    ? path.join(currentDir, "..", "..", ASSETS_FOLDER)
+    : // after build it will be on dist/ and package is on .
+      path.join(currentDir, "..", ASSETS_FOLDER);
 }

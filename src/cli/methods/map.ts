@@ -1,3 +1,4 @@
+import { docs } from "./docs";
 import { generate } from "./generate";
 import { help } from "./help";
 import { init } from "./init";
@@ -13,8 +14,11 @@ export const map: Record<MethodName | string, (args: string[]) => void> = {
   "-h": help,
   init,
   i: init,
+  docs,
+  d: docs,
   generate,
   g: generate,
+  gen: generate,
   snippet,
   s: snippet,
   snip: snippet,

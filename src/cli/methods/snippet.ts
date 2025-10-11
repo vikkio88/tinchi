@@ -1,21 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { c } from "../../helpers/colours";
-import { currentScriptDir } from "../../helpers/dir";
-import { isDev } from "../../helpers/env";
 import { templateInterpolator } from "../../helpers/files";
 import { loadTinchiConfig } from "../../helpers/cli";
+import { currentScriptDir } from "../../helpers/dir";
+import { getAssetsFolder } from "../../assets/config";
 
 const SNIPPET_FILE = "snippets.json";
-const ASSETS_FOLDER = "assets";
-
-function getAssetsFolder() {
-  const __dirname = currentScriptDir();
-  return isDev()
-    ? path.join(__dirname, "..", "..", ASSETS_FOLDER)
-    : // after build it will be on dist/ and package is on .
-      path.join(__dirname, "..", ASSETS_FOLDER);
-}
 
 type SnippetName = "";
 
@@ -52,7 +43,9 @@ export function snippet([rawSnippetName, filename, ..._]: string[]) {
       a.localeCompare(b)
     );
     if (entries.length === 0) {
-      console.log(`${c.red(`No snippets found in \`${SNIPPET_FILE}\` snippet database.`)}`);
+      console.log(
+        `${c.red(`No snippets found in \`${SNIPPET_FILE}\` snippet database.`)}`
+      );
       return;
     }
 
@@ -100,7 +93,10 @@ export function snippet([rawSnippetName, filename, ..._]: string[]) {
 }
 
 function load(): Snippets {
-  const snippetPath = path.join(getAssetsFolder(), "snippets.json");
+  const snippetPath = path.join(
+    getAssetsFolder(currentScriptDir()),
+    "snippets.json"
+  );
   try {
     return JSON.parse(fs.readFileSync(snippetPath, "utf8")) as Snippets;
   } catch {
