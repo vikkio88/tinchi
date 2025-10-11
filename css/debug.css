@@ -1,4 +1,4 @@
-/* Section: Debug Utils*/
+/* Section: Debug Utils */
 /* Debug colours an element blue borders and red bg to display its boundaries */
 .debug {
   border: var(--borders);
