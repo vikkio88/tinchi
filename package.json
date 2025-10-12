@@ -5,7 +5,7 @@
   "description": "a small css util library",
   "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
   "license": "MIT",
-  "main": "./index.js",
+  "main": "./dist/index.js",
   "bin": {
     "tinchi": "./dist/index.js"
   },
