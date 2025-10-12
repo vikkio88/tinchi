@@ -1,7 +1,7 @@
 {
   "name": "tinchi",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a small css util library",
   "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "build:docs": "rm assets/docs* && bun scripts/buildDocs.ts",
     "build": "bun clean && bun build:docs && bun run bun.build.ts",
     "prepublish": "bun run build",
-    "deploy:doc" : "bun start i -f tests/example/test.css && bun start g -f && bunx surge --domain https://tinchi-docs.surge.sh/ ./tests"
+    "deploy:doc": "bun start i -f tests/example/test.css && bun start g -f && bunx surge --domain https://tinchi-docs.surge.sh/ ./tests"
   },
   "devDependencies": {
     "@types/bun": "latest"
