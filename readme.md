@@ -27,13 +27,22 @@ This will create a `.tinchirc` config file in your project folder.
 The generated file looks like this:
 
 ```json
-{
-  "output": "public/assets/style.css",
-  "vars": {
+"outputPath": "tests/example/test.css",
+  "config": {
+    "head": true,
+    "minify": false,
+    "colorScheme": "both"
+  },
+  "vars": {},
+  "colors": {
     "DARK": "#000003",
     "LIGHT": "#fbfcfe",
     "DARK_FAINT": "#2e2e2e",
-    "LIGHT_FAINT": "#e8e9eb"
+    "LIGHT_FAINT": "#e8e9eb",
+    "PRIMARY": "#94FDF8",
+    "PRIMARY_1": "#73C2BE",
+    "SECONDARY": "#D0F88B",
+    "SECONDARY_1": "#B5F44A",
 ...
 ```
 

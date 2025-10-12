@@ -25,7 +25,8 @@
     "dev:layout": "bun start i -f tests/example/test.css && bun start g -f && bun --port 3333 tests/example/layout.html tests/example/test.css",
     "build:docs": "rm assets/docs* && bun scripts/buildDocs.ts",
     "build": "bun clean && bun build:docs && bun run bun.build.ts",
-    "prepublish": "bun run build"
+    "prepublish": "bun run build",
+    "deploy:doc" : "bun start i -f tests/example/test.css && bun start g -f && bunx surge --domain https://tinchi-docs.surge.sh/ ./tests"
   },
   "devDependencies": {
     "@types/bun": "latest"
