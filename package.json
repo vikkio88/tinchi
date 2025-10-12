@@ -1,42 +1,38 @@
 {
   "name": "tinchi",
   "type": "module",
-  "version": "1.5.5",
+  "version": "2.0.0",
   "description": "a small css util library",
+  "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "bin": {
+    "tinchi": "./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vikkio88/tinchi.git"
+  },
   "keywords": [
     "css",
     "flexbox",
     "utils"
   ],
   "scripts": {
-    "test:gen:example": "rm -rf test/example/assets && node index.js generate test/example/assets",
-    "test:gen:example-merge": "rm -rf test/example/assets && node index.js generate test/example/assets style.css",
-    "build": "node scripts/gendoc.mjs",
-    "build:example": "vite build --config vite.examples.config.js",
-    "deploy:example": "surge --domain tinchi-docs.surge.sh/ test/example/dist/",
-    "prepublishOnly": "npm run build",
-    "test": "vitest",
-    "dev": "vite --config vite.examples.config.js",
-    "dev:layouts": "vite --config vite.layouts.config.js",
-    "g": "node index.js g",
-    "i": "node index.js i test/example/assets/style.css -f"
-  },
-  "author": "Vincenzo Ciaccio <vincenzo.ciaccio@gmail.com>",
-  "license": "MIT",
-  "main": "./index.js",
-  "bin": {
-    "tinchi": "./index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vikkio88/tinchi.git"
+    "start": "bun ./src/index.ts",
+    "clean": "rm -rf dist",
+    "dev": "bun start i -f tests/example/test.css && bun start g -f && bun --port 3333 tests/example/index.html tests/example/test.css",
+    "dev:layout": "bun start i -f tests/example/test.css && bun start g -f && bun --port 3333 tests/example/layout.html tests/example/test.css",
+    "build:docs": "rm assets/docs* && bun scripts/buildDocs.ts",
+    "build": "bun clean && bun run bun.build.ts"
   },
   "devDependencies": {
-    "vite": "^5.2.11",
-    "vite-plugin-command": "^1.0.0",
-    "vitest": "^1.6.0"
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
   },
   "dependencies": {
-    "picocolors": "^1.0.1"
+    "picocolors": "^1.1.1"
   }
 }

@@ -1,2 +1,10 @@
 test/
+src/
+old/
+bun.lock
+tsconfig.json
 .tinchirc
+bun.lock
+bun.build.ts
+test.css
+index.html

@@ -1,0 +1,28 @@
+/* Section: Themed Dark/Light Colours */
+/* Default theme */
+:root {
+    --main-font-color: __DARK__;
+    --main-font-faint-color: __DARK_FAINT__;
+    --main-bg-color: __LIGHT__;
+    --main-bg-faint-color: __LIGHT_FAINT__;
+}
+
+/* dark theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-font-color: __LIGHT__;
+        --main-font-faint-color: __LIGHT_FAINT__;
+        --main-bg-color: __DARK__;
+        --main-bg-faint-color: __DARK_FAINT__;
+    }
+}
+
+/* light theme */
+@media (prefers-color-scheme: light) {
+    :root {
+        --main-font-color: __DARK__;
+        --main-font-faint-color: __DARK_FAINT__;
+        --main-bg-color: __LIGHT__;
+        --main-bg-faint-color: __LIGHT_FAINT__;
+    }
+}

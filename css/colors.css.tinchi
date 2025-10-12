@@ -1,0 +1,75 @@
+/* Section: Colours */
+/* vars for the configurable colours */
+:root {
+    --primary-color: __PRIMARY__;
+    --primary-v1-color: __PRIMARY_1__;
+    --secondary-color: __SECONDARY__;
+    --secondary-v1-color: __SECONDARY_1__;
+    --accent-color: __ACCENT__;
+    --accent-v1-color: __ACCENT_1__;
+    --accent-faint-color: __ACCENT_FAINT__;
+    --danger-color: __DANGER__;
+    --danger-v1-color: __DANGER_1__;
+    --danger-faint-color: __DANGER_FAINT__;
+    --warning-color: __WARNING__;
+    --warning-v1-color: __WARNING_1__;
+    --warning-faint-color: __WARNING_FAINT__;
+    --success-color: __SUCCESS__;
+    --success-v1-color: __SUCCESS_1__;
+    --success-faint-color: __SUCCESS_FAINT__;
+}
+
+/* vars for the basic colours */
+:root {
+    --blue-color: #3b82f6;
+    --blue-1-color: #1e40af;
+    --blue-2-color: #93c5fd;
+
+    --red-color: #ef4444;
+    --red-1-color: #991b1b;
+    --red-2-color: #fca5a5;
+
+    --green-color: #22c55e;
+    --green-1-color: #166534;
+    --green-2-color: #86efac;
+
+    --lime-color: #84cc16;
+    --lime-1-color: #4d7c0f;
+    --lime-2-color: #bef264;
+
+    --light-green-color: #bbf7d0;
+    --light-green-1-color: #4ade80;
+    --light-green-2-color: #15803d;
+
+    --yellow-color: #eab308;
+    --yellow-1-color: #a16207;
+    --yellow-2-color: #facc15;
+
+    --orange-color: #f97316;
+    --orange-1-color: #c2410c;
+    --orange-2-color: #fdba74;
+
+    --teal-color: #14b8a6;
+    --teal-1-color: #0f766e;
+    --teal-2-color: #5eead4;
+
+    --amber-color: #f59e0b;
+    --amber-1-color: #b45309;
+    --amber-2-color: #fcd34d;
+
+    --brown-color: #92400e;
+    --brown-1-color: #78350f;
+    --brown-2-color: #fcd9b6;
+
+    --gray-color: #6b7280;
+    --gray-1-color: #374151;
+    --gray-2-color: #d1d5db;
+
+    --black-color: #000000;
+    --black-1-color: #0f0f0f;
+    --black-2-color: #1c1c1c;
+
+    --white-color: #ffffff;
+    --white-1-color: #fefefe;
+    --white-2-color: #f4f4f5;
+}

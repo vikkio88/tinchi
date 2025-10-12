@@ -1,0 +1,98 @@
+/** Section: Custom Components **/
+/* code  component */
+code {
+  background-color: var(--main-bg-faint-color);
+  border-radius: var(--border-radius);
+  padding: var(--pad);
+}
+
+/* Section: Components */
+article {
+  padding: var(--pad);
+  border-radius: var(--border-radius);
+  background-color: var(--main-bg-faint-color);
+}
+
+/* 
+  Basic tooltip data-tooltip="something"
+  data-tooltip-position="top" <- by default
+  "bottom" "left" and "right" are also accepted
+*/
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  width: max-content;
+  color: var(--main-font-color);
+  background-color: var(--main-bg-color);
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 0.8;
+}
+
+/* Tooltip positioning - TOP (default) */
+[data-tooltip]:not([data-tooltip-position])::after,
+[data-tooltip][data-tooltip-position="top"]::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-0.5rem);
+}
+
+/* Tooltip positioning - BOTTOM */
+[data-tooltip][data-tooltip-position="bottom"]::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(0.5rem);
+}
+
+/* Tooltip positioning - LEFT */
+[data-tooltip][data-tooltip-position="left"]::after {
+  top: 50%;
+  right: 100%;
+  transform: translateX(-0.5rem) translateY(-50%);
+}
+
+/* Tooltip positioning - RIGHT */
+[data-tooltip][data-tooltip-position="right"]::after {
+  top: 50%;
+  left: 100%;
+  transform: translateX(0.5rem) translateY(-50%);
+}
+
+/* Table */
+table {
+  text-align: center;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 1px solid var(--main-font-color);
+  padding: 0.5rem;
+}
+
+td {
+  padding: 0.5rem;
+}
+
+tr:nth-child(even) {
+  background-color: var(--main-bg-faint-color);
+}
+
+tr:not(thead tr):hover {
+  background-color: var(--secondary-v1-color);
+  color: var(--white-1-color);
+}
+
+tr:not(thead tr):hover a {
+  color: var(--white-1-color);
+}

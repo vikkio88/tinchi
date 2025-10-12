@@ -67,21 +67,19 @@ usage:
 
 Methods:
 
-  init      -  tinchi init [output/file/path]
+  init     -  tinchi init [output/file/path]
     Creates a .tinchirc configuration file.
     Optionally specify the output file path.
 
-  generate  -  tinchi generate [path/of/file] [filename]
+  generate -  tinchi generate [path/of/file] [filename]
     Generates CSS based on your .tinchirc settings.
-    If no path is provided, uses the 'output' field from .tinchirc.
-    Pulls colors from .tinchirc or falls back to defaults.
 
-  search    -  tinchi search [query]
-    Finds utility classes matching the given keywords.
-    Example: tinchi search flex direction column
+  docs     -  tinchi docs [query]
+    Finds utility classes/ css selectors matching the given keywords.
+    Example: tinchi docs flex
 
-  snippet   -  tinchi snippet <snippet-name> <file.css>
-    Appends a predefined CSS snippet (like a media query) to the target file.
+  snippet  -  tinchi snippet <snippet-name> <file.css|html>
+    Appends a predefined CSS|html snippet (like a media query) to the target file.
     Use: tinchi snippet list
     to view all available snippets.
 ```

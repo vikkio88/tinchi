@@ -1,0 +1,36 @@
+/* Section: Main body defaults overrides */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: var(--font-size);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: var(--accent-v1-color);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+ul {
+  all: unset;
+  list-style: none;
+}
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
