@@ -1,5 +1,6 @@
+import { HEADER } from "../../helpers/cli";
 import { c } from "../../helpers/colours";
 
 export function help() {
-  console.log(c.blue("help"));
+  console.log(`${HEADER}`);
 }

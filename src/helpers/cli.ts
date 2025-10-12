@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { TINCHI_CONFIG_FILENAME, type TinchiConfig } from "../assets/config";
 import { c } from "./colours";
+import { getVersion } from "../cli/methods/version";
 
 export function hasForceParameter(args: string[]) {
   return args.includes("-f") || args.includes("--force");
@@ -35,3 +36,7 @@ export function loadTinchiConfig(): TinchiConfig {
     process.exit(1);
   }
 }
+
+export const HEADER = `${c.b("Tinchi")} - tinchee (Sicilian: "to paint")
+  version: ${c.green(getVersion())}
+`;

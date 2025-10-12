@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { c } from "../../helpers/colours";
 import { isDev } from "../../helpers/env";
 import { currentScriptDir } from "../../helpers/dir";
+import { HEADER } from "../../helpers/cli";
 
 type PackageJson = {
   version: string;
@@ -26,5 +27,5 @@ export function getVersion(): string {
 }
 
 export function version() {
-  console.log(getVersion());
+  console.log(HEADER);
 }
