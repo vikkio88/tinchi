@@ -1,5 +1,5 @@
 test/
-./src/
+src/
 old/
 bun.lock
 tsconfig.json
@@ -7,4 +7,4 @@ tsconfig.json
 bun.lock
 bun.build.ts
 test.css
-./scripts
+scripts/
