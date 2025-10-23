@@ -20,7 +20,7 @@ export function init(args: string[]) {
 
   const configToWrite = {
     ...DEFAULT_CONFIG,
-    outputPath,
+    outputPath: outputPath || DEFAULT_CONFIG.outputPath,
   };
 
   fs.writeFileSync(configPath, JSON.stringify(configToWrite, null, 2));
