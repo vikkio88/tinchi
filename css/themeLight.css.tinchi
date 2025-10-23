@@ -1,5 +1,5 @@
 /* Section: Themed Light Colours */
-/* Default theme */
+/* Light theme */
 :root {
     --main-font-color: __DARK__;
     --main-font-faint-color: __DARK_FAINT__;
