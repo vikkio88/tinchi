@@ -5,8 +5,11 @@ import {
   DEFAULT_OUTPUT_PATH,
 } from "./vars";
 import { isDev } from "../helpers/env";
+import { getVersion } from "../cli/methods/version";
 
 export type TinchiConfig = {
+  /** version */
+  version: string;
   /** output path */
   outputPath: string;
   config: {
@@ -27,6 +30,7 @@ export type TinchiConfig = {
 };
 
 export const DEFAULT_CONFIG: TinchiConfig = {
+  version: getVersion(),
   outputPath: DEFAULT_OUTPUT_PATH,
   config: {
     head: true,
