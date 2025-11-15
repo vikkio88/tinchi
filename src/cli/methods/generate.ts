@@ -6,14 +6,14 @@ import {
   TINCHI_CONFIG_FILENAME,
   type TinchiConfig,
 } from "../../assets/config";
-import { c } from "../../helpers/colours";
-import { hasForceParameter, loadTinchiConfig } from "../../helpers/cli";
-import { isDev } from "../../helpers/env";
-import { currentScriptDir } from "../../helpers/dir";
-import { templateInterpolator } from "../../helpers/files";
 import { HEAD_VARS } from "../../assets/vars";
-import { getVersion } from "./version";
+import { hasForceParameter, loadTinchiConfig } from "../../helpers/cli";
+import { c } from "../../helpers/colours";
+import { currentScriptDir } from "../../helpers/dir";
+import { isDev } from "../../helpers/env";
+import { templateInterpolator } from "../../helpers/files";
 import { minifyCSS } from "../../helpers/minify";
+import { getVersion } from "./version";
 
 export function generate(args: string[]) {
   const force = hasForceParameter(args);
@@ -21,7 +21,7 @@ export function generate(args: string[]) {
   if (!fs.existsSync(configPath)) {
     console.error(
       `❌ ${c.red(`No ${TINCHI_CONFIG_FILENAME} file found`)}.
-Run ${c.i(`\`tinchi init\``)} to initialize the config file first.`
+Run ${c.i(`\`tinchi init\``)} to initialize the config file first.`,
     );
     process.exit(1);
   }
@@ -30,7 +30,7 @@ Run ${c.i(`\`tinchi init\``)} to initialize the config file first.`
   if (fs.existsSync(tinchiRc.outputPath) && !force) {
     console.error(
       `${c.red(`⚠️  Css output \`${tinchiRc.outputPath}\` already exists.`)}
-      ${c.i("Use --force to overwrite.")}`
+      ${c.i("Use --force to overwrite.")}`,
     );
     process.exit(1);
   }
@@ -55,10 +55,12 @@ Run ${c.i(`\`tinchi init\``)} to initialize the config file first.`
     cssResult = minifyCSS(cssResult);
   }
 
+  const outDir = path.dirname(tinchiRc.outputPath);
+  fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(tinchiRc.outputPath, cssResult);
   console.log(
     `${c.green("✅ Tinchi css created in: ")}
-    ${c.b(tinchiRc.outputPath)}`
+    ${c.b(tinchiRc.outputPath)}`,
   );
 }
 
@@ -80,8 +82,8 @@ function theme(tinchiRc: TinchiConfig, cssBaseFolder: string) {
     tinchiRc.config.colorScheme === "both"
       ? "themeBoth"
       : tinchiRc.config.colorScheme === "dark"
-      ? "themeDark"
-      : "themeLight";
+        ? "themeDark"
+        : "themeLight";
   const template = f(getCssFilePath(cssBaseFolder, themeFile));
   return templateInterpolator(template, tinchiRc.colors);
 }
