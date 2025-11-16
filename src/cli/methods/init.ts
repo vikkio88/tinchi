@@ -2,8 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 import { DEFAULT_CONFIG, TINCHI_CONFIG_FILENAME } from "../../assets/config";
-import { c } from "../../helpers/colours";
 import { extractNonForceParams, hasForceParameter } from "../../helpers/cli";
+import { c } from "../../helpers/colours";
 
 export function init(args: string[]) {
   const force = hasForceParameter(args);
@@ -13,7 +13,7 @@ export function init(args: string[]) {
   if (fs.existsSync(configPath) && !force) {
     console.error(
       `${c.red("⚠️  TinchiRc already initialized.")}
-      ${c.i("Use --force to overwrite.")}\n${c.b("File:")} ${configPath}`
+      ${c.i("Use --force to overwrite.")}\n${c.b("File:")} ${configPath}`,
     );
     process.exit(1);
   }
@@ -23,10 +23,26 @@ export function init(args: string[]) {
     outputPath: outputPath || DEFAULT_CONFIG.outputPath,
   };
 
+  addToGitignore(configToWrite.outputPath);
+
   fs.writeFileSync(configPath, JSON.stringify(configToWrite, null, 2));
   console.log(`${c.green("✅ Tinchi config initialized in:")}
   ${c.b(configPath)}`);
   console.log(
-    `Run ${c.b("`tinchi generate`")} ${c.i("to generate your css file.")}`
+    `Run ${c.b("`tinchi generate`")} ${c.i("to generate your css file.")}`,
   );
+}
+
+const GITIGNORE = ".gitignore";
+function addToGitignore(outputPath: string) {
+  if (!fs.existsSync(GITIGNORE)) {
+    return;
+  }
+
+  const cleanPath = outputPath.replace(/^\.\//, "");
+  if (fs.readFileSync(GITIGNORE).includes(cleanPath)) {
+    return;
+  }
+
+  fs.appendFileSync(GITIGNORE, `\n${cleanPath}\n`);
 }

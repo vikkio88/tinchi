@@ -61,8 +61,7 @@ Run ${c.i(`\`tinchi init\``)} to initialize the config file first.`,
   console.log(
     `${c.green("✅ Tinchi css created in: ")}
     ${c.b(tinchiRc.outputPath)}
-
-  don't forget to add it to your ${c.b(".gitignore")}`,
+    `,
   );
 }
 
