@@ -1,22 +1,22 @@
 /* Section: Sizes variables */
 /* spacing, borders and sizes variables */
 :root {
-    --border-radius: .5rem;
+    --border-radius: __BORDER_RADIUS__;
     --input-border-radius: 10px;
-    --pad: 1rem;
-    --font-size: 16px;
-    --small-font-size: 12px;
-    --medium-font-size: 18px;
+    --pad: __BASE_PADDING__;
+    --font-size: __BASE_FONT_SIZE__;
+    --small-font-size: __SMALL_FONT_SIZE__;
+    --medium-font-size: __MEDIUM_FONT_SIZE__;
 
-    --borders: 2px var(--main-font-color) solid;
-    --borders-dashed: 2px var(--main-font-color) dashed;
-    --borders-dashed-danger: 2px var(--danger-color) dashed;
-    --borders-dashed-warning: 2px var(--warning-color) dashed;
-    --borders-dashed-success: 2px var(--success-color) dashed;
+    --borders: __BORDER_SIZE__ var(--main-font-color) solid;
+    --borders-dashed: __BORDER_SIZE__ var(--main-font-color) dashed;
+    --borders-dashed-danger: __BORDER_SIZE__ var(--danger-color) dashed;
+    --borders-dashed-warning: __BORDER_SIZE__ var(--warning-color) dashed;
+    --borders-dashed-success: __BORDER_SIZE__ var(--success-color) dashed;
     --thin-borders: 1px var(--main-font-color) solid;
     --box-shadow: 0 .2rem 1rem var(--main-font-color);
 
-    line-height: 1.5;
+    line-height: __LINE_HEIGHT__;
 
     color: var(--main-font-color);
     background-color: var(--main-bg-color);

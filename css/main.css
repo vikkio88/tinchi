@@ -195,6 +195,10 @@ h3 {
   font-size: 1.7rem;
 }
 
+h4 {
+  font-size: 1.4rem;
+}
+
 /*  Section: Colours */
 .primary {
   color: var(--primary-color);
@@ -243,14 +247,15 @@ button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--main-font-color);
   font-family: inherit;
-  background-color: var(--accent-v1-color);
+  color: var(--accent-color);
+  background-color: var(--main-bg-faint-color);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
+  color: var(--main-font-color);
   background-color: var(--accent-color);
 }
 
@@ -303,11 +308,12 @@ button.warning:hover {
 
 button.p {
   background-color: var(--primary-v1-color);
+  color: var(--main-font-color);
 }
 
 button.p:hover {
-  background-color: var(--primary-color);
-  color: var(--main-bg-color);
+  background-color: var(--main-bg-faint-color);
+  color: var(--primary-color);
 }
 
 button.s {
@@ -316,8 +322,8 @@ button.s {
 }
 
 button.s:hover {
-  background-color: var(--primary-v1-color);
-  color: var(--main-bg-color);
+  background-color: var(--main-bg-faint-color);
+  color: var(--secondary-v1-color);
 }
 
 /* transparent big variant */

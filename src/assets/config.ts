@@ -1,11 +1,12 @@
 import path from "node:path";
+import { getVersion } from "../cli/methods/version";
+import { isDev } from "../helpers/env";
 import {
   DEFAULT_COLOURS,
   DEFAULT_COMPONENTS,
   DEFAULT_OUTPUT_PATH,
+  DEFAULT_VARS,
 } from "./vars";
-import { isDev } from "../helpers/env";
-import { getVersion } from "../cli/methods/version";
 
 export type TinchiConfig = {
   /** version */
@@ -37,7 +38,7 @@ export const DEFAULT_CONFIG: TinchiConfig = {
     minify: false,
     colorScheme: "both",
   },
-  vars: {},
+  vars: DEFAULT_VARS,
   colors: DEFAULT_COLOURS,
   components: DEFAULT_COMPONENTS,
 };
@@ -93,7 +94,7 @@ export const CSS_FILES = {
 
 export function getCssFilePath(
   assetsFolders: string,
-  file: keyof typeof CSS_FILES
+  file: keyof typeof CSS_FILES,
 ) {
   const f = CSS_FILES[file];
   return path.join(assetsFolders, f.isTemplate ? `${f.path}.tinchi` : f.path);

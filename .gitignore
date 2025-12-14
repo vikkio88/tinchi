@@ -39,3 +39,6 @@ test.css
 /tests
 docs*json
 error.css
+tests/example/test.css
+
+public/styles.css

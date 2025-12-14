@@ -25,6 +25,16 @@ export const HEAD_VARS = {
   version: "VERSION",
 };
 
+export const DEFAULT_VARS = {
+  BASE_PADDING: "1rem",
+  BORDER_RADIUS: ".5rem",
+  BORDER_SIZE: "2px",
+  LINE_HEIGHT: "1.5",
+  BASE_FONT_SIZE: "16px",
+  MEDIUM_FONT_SIZE: "18px",
+  SMALL_FONT_SIZE: "14px",
+};
+
 export const DEFAULT_OUTPUT_PATH = "./public/styles.css";
 
 export const DEFAULT_COMPONENTS = {
